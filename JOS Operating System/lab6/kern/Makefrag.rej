@@ -1,0 +1,11 @@
+--- kern/Makefrag	(版本 1345)
++++ kern/Makefrag	(版本 1541)
+@@ -27,6 +27,8 @@
+ 			kern/sched.c \
+ 			kern/syscall.c \
+ 			kern/kdebug.c \
++			kern/pci.c \
++			kern/ide.c \
+ 			lib/printfmt.c \
+ 			lib/readline.c \
+ 			lib/string.c

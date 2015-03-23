@@ -1,0 +1,2 @@
+#qemu -hda obj/kern/bochs.img -hdb obj/fs/fs.img -no-kqemu -parallel /dev/stdout > qemu.out
+qemu -s -S -hda obj/kern/bochs.img -hdb obj/fs/fs.img -parallel /dev/stdout > qemu.out

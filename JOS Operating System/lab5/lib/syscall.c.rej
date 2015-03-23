@@ -1,0 +1,81 @@
+***************
+*** 22,43 ****
+      // 1. keep sure the return value is correct
+      // 2. pass the parameter a5 correctly into the kernel
+      // 3. restore the IF bit in the eflag register after exercise 8
+-     asm volatile("pusha\n\t"
+-                  "movl $1f, %%esi\n\t"
+-                  "movl %%esp, %%ebp\n\t"
+-                  "nop\n\t"
+                   "sysenter\n\t"
+                   "1:\n\t"
+-                  "popa\n\t"
+- 		         : "=a" (ret)
+                   : "a" (num),
+- 		         "d" (a1),
+- 		         "c" (a2),
+- 		         "b" (a3),
+-                  "D" (a4)
+- 		         : "cc", "memory");
+- 	
+-                    
+  	if(check && ret > 0)
+  		panic("syscall %d returned %d (> 0)", num, ret);
+  
+--- 22,77 ----
+      // 1. keep sure the return value is correct
+      // 2. pass the parameter a5 correctly into the kernel
+      // 3. restore the IF bit in the eflag register after exercise 8
++               /*if(num == SYS_page_map) { //or num == SYS_page_map
++                 asm volatile("int %1\n"
++ 		: "=a" (ret)
++ 		: "i" (T_SYSCALL),
++ 		  "a" (num),
++ 		  "d" (a1),
++ 		  "c" (a2),
++ 		  "b" (a3),
++ 		  "D" (a4),
++ 		  "S" (a5)
++ 		: "cc", "memory");
++         return ret;//why use this method the forktree test is ok
++                 }//*/
++ 
++          __asm__ volatile(
++                 /*"pushl %%ecx\n\t"
++                 "pushl %%edx\n\t"
++                 "pushl %%ebx\n\t"
++                 "pushl %%esi\n\t"
++                 "pushl %%edi\n\t"*/
++                 "pushl %%ebp\n\t"
++                 "pushfl\n\t"
++                 "pushl %6\n\t"//pushl the fifth arguements to the user stack
++                                 //we must pushl it before ebpchanges
++                 "pushl %%esp\n\t"
++                 "popl %%ebp\n\t"//esp will be changed so store it in ebp
++                  //"xchg %%bx, %%bx\n\t"
++                  "leal 1f,%%esi\n\t"
++                  //"xchg %%bx,%%bx\n\t"
+                   "sysenter\n\t"
+                   "1:\n\t"
++                  //"xchg %%bx,%%bx\n\t"
++                  "addl $4,%%esp\n\t"
++                  //"xchg %%bx, %%bx\n\t"
++                  "popfl\n\t"
++                  //"xchg %%bx, %%bx\n\t"
++                  "popl %%ebp\n\t"
++                  /*"popl %%edi\n\t"
++                  "popl %%esi\n\t"
++                  "popl %%ebx\n\t"
++                  "popl %%edx\n\t"
++                  "popl %%ecx"*/
++                  : "=a" (ret)
+                   : "a" (num),
++                    "d" (a1),
++                    "c" (a2),
++                    "b" (a3),
++                    "D" (a4),
++                    "S" (a5)
++                    :"cc","memory");
+  	if(check && ret > 0)
+  		panic("syscall %d returned %d (> 0)", num, ret);
+  

@@ -1,0 +1,83 @@
+***************
+*** 3,22 ****
+  #include <inc/stdio.h>
+  #include <inc/string.h>
+  #include <inc/assert.h>
+- 
+  #include <kern/monitor.h>
+  #include <kern/console.h>
+  #include <kern/pmap.h>
+  #include <kern/kclock.h>
+  #include <kern/env.h>
+  #include <kern/trap.h>
+- 
+- 
+  void
+  i386_init(void)
+  {
+  	extern char edata[], end[];
+- 
+  	// Before doing anything else, complete the ELF loading process.
+  	// Clear the uninitialized global data (BSS) section of our program.
+  	// This ensures that all static/global variables start out zero.
+--- 3,21 ----
+  #include <inc/stdio.h>
+  #include <inc/string.h>
+  #include <inc/assert.h>
++ #include <inc/x86.h>
+  #include <kern/monitor.h>
+  #include <kern/console.h>
+  #include <kern/pmap.h>
+  #include <kern/kclock.h>
+  #include <kern/env.h>
+  #include <kern/trap.h>
+  void
+  i386_init(void)
+  {
+  	extern char edata[], end[];
++ extern uint32_t sysenterhandler;
++ //extern struct Taskstate ts;
+  	// Before doing anything else, complete the ELF loading process.
+  	// Clear the uninitialized global data (BSS) section of our program.
+  	// This ensures that all static/global variables start out zero.
+***************
+*** 37,52 ****
+  	idt_init();
+  
+  
+  	// Temporary test code specific to LAB 3
+  #if defined(TEST)
+  	// Don't touch -- used by grading script!
+  	ENV_CREATE2(TEST, TESTSIZE);
+  #else
+  	// Touch all you want.
+  	ENV_CREATE(user_hello);
+  #endif // TEST*
+  
+- 
+  	// We only have one user environment for now, so just run it.
+  	env_run(&envs[0]);
+  
+--- 36,57 ----
+  	idt_init();
+  
+  
++     /*set up MSR*/
++     wrmsr(IA32_SYSENTER_CS,GD_KT,0);//set the segment
++     wrmsr(IA32_SYSENTER_EIP,&sysenterhandler,0);//set the handler
++     wrmsr(IA32_SYSENTER_ESP,KSTACKTOP,0);//set the stack
+  	// Temporary test code specific to LAB 3
+  #if defined(TEST)
+  	// Don't touch -- used by grading script!
++ //    cprintf("here1\n");
+  	ENV_CREATE2(TEST, TESTSIZE);
+  #else
+  	// Touch all you want.
++ //    cprintf("here2\n");
+  	ENV_CREATE(user_hello);
+  #endif // TEST*
+  
++ //cprintf("i386_init: PassedTest\n");
+  	// We only have one user environment for now, so just run it.
+  	env_run(&envs[0]);
+  

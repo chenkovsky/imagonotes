@@ -1,0 +1,60 @@
+***************
+*** 57,80 ****
+  static int
+  sys_env_destroy(envid_t envid)
+  {
+- 	int r;
+- 	struct Env *e;
+  
+- 	if ((r = envid2env(envid, &e, 1)) < 0)
+- 		return r;
+- 	if (e == curenv)
+- 		cprintf("[%08x] exiting gracefully\n", curenv->env_id);
+- 	else
+- 		cprintf("[%08x] destroying %08x\n", curenv->env_id, e->env_id);
+- 	env_destroy(e);
+- 	return 0;
+  }
+  
+  // Deschedule current environment and pick a different one to run.
+  static void
+  sys_yield(void)
+  {
+- 	sched_yield();
+  }
+  
+  // Allocate a new environment.
+--- 57,89 ----
+  static int
+  sys_env_destroy(envid_t envid)
+  {
++     int r;
++     struct Env *e;
+  
++     if ((r = envid2env(envid, &e, 1)) < 0)
++         return r;
++     if (e == curenv)
++         cprintf("[%08x] exiting gracefully\n", curenv->env_id);
++     else
++         cprintf("[%08x] destroying %08x\n", curenv->env_id, e->env_id);
++     env_destroy(e);
++     return 0;
+  }
+  
++ static int sys_dump_env(void){
++     cprintf("env_id = %08x\n",curenv->env_id);
++     cprintf("env_parent_id = %08x\n",curenv->env_parent_id);
++     cprintf("env_runs = %d\n",curenv->env_runs);
++     cprintf("env_pgdir = %08x\n",curenv->env_pgdir);
++     cprintf("env_cr3 = %08x\n",curenv->env_cr3);
++     cprintf("env_syscalls = %d\n",curenv->env_syscalls);
++     return 0;
++ }
+  // Deschedule current environment and pick a different one to run.
+  static void
+  sys_yield(void)
+  {
++     sched_yield();
+  }
+  
+  // Allocate a new environment.

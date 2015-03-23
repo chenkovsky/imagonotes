@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="62">
+  <logicalFolder name="root" displayName="root" projectFiles="true">
+    <df name="lab5" root=".">
+      <df name="boot">
+        <in>main.c</in>
+      </df>
+      <df name="conf">
+      </df>
+      <df name="fs">
+        <in>fs.c</in>
+        <in>fs.h</in>
+        <in>fsformat.c</in>
+        <in>serv.c</in>
+        <in>test.c</in>
+      </df>
+      <df name="inc">
+        <in>args.h</in>
+        <in>assert.h</in>
+        <in>elf.h</in>
+        <in>env.h</in>
+        <in>error.h</in>
+        <in>fd.h</in>
+        <in>fs.h</in>
+        <in>isareg.h</in>
+        <in>kbdreg.h</in>
+        <in>lib.h</in>
+        <in>malloc.h</in>
+        <in>memlayout.h</in>
+        <in>mmu.h</in>
+        <in>queue.h</in>
+        <in>stab.h</in>
+        <in>stdarg.h</in>
+        <in>stdio.h</in>
+        <in>string.h</in>
+        <in>syscall.h</in>
+        <in>timerreg.h</in>
+        <in>trap.h</in>
+        <in>types.h</in>
+        <in>x86.h</in>
+      </df>
+      <df name="kern">
+        <in>console.c</in>
+        <in>console.h</in>
+        <in>env.c</in>
+        <in>env.h</in>
+        <in>ide.c</in>
+        <in>ide.h</in>
+        <in>idereg.h</in>
+        <in>init.c</in>
+        <in>kclock.c</in>
+        <in>kclock.h</in>
+        <in>kdebug.c</in>
+        <in>kdebug.h</in>
+        <in>monitor.c</in>
+        <in>monitor.h</in>
+        <in>pci.c</in>
+        <in>pci.h</in>
+        <in>pcireg.h</in>
+        <in>picirq.c</in>
+        <in>picirq.h</in>
+        <in>pmap.c</in>
+        <in>pmap.h</in>
+        <in>printf.c</in>
+        <in>sched.c</in>
+        <in>sched.h</in>
+        <in>syscall.c</in>
+        <in>syscall.h</in>
+        <in>trap.c</in>
+        <in>trap.h</in>
+      </df>
+      <df name="lib">
+        <in>console.c</in>
+        <in>exit.c</in>
+        <in>fd.c</in>
+        <in>file.c</in>
+        <in>fork.c</in>
+        <in>fprintf.c</in>
+        <in>fsipc.c</in>
+        <in>ipc.c</in>
+        <in>libmain.c</in>
+        <in>pageref.c</in>
+        <in>panic.c</in>
+        <in>pgfault.c</in>
+        <in>printf.c</in>
+        <in>printfmt.c</in>
+        <in>readline.c</in>
+        <in>spawn.c</in>
+        <in>string.c</in>
+        <in>syscall.c</in>
+      </df>
+      <df name="obj">
+        <df name="kern">
+        </df>
+      </df>
+      <df name="user">
+        <in>cat.c</in>
+        <in>dumbfork.c</in>
+        <in>echo.c</in>
+        <in>fairness.c</in>
+        <in>faultalloc.c</in>
+        <in>faultallocbad.c</in>
+        <in>faultbadhandler.c</in>
+        <in>faultdie.c</in>
+        <in>faultevilhandler.c</in>
+        <in>faultnostack.c</in>
+        <in>faultread.c</in>
+        <in>faultwrite.c</in>
+        <in>forktree.c</in>
+        <in>hello.c</in>
+        <in>icode.c</in>
+        <in>idle.c</in>
+        <in>init.c</in>
+        <in>initsh.c</in>
+        <in>ls.c</in>
+        <in>lsfd.c</in>
+        <in>num.c</in>
+        <in>pingpong.c</in>
+        <in>pingpongs.c</in>
+        <in>primes.c</in>
+        <in>primespipe.c</in>
+        <in>spawnhello.c</in>
+        <in>spawninit.c</in>
+        <in>spin.c</in>
+        <in>testfsipc.c</in>
+        <in>testpmap.c</in>
+        <in>writemotd.c</in>
+        <in>yield.c</in>
+      </df>
+    </df>
+    <logicalFolder name="ExternalFiles" displayName="重要文件" projectFiles="false">
+      <itemPath>GNUmakefile</itemPath>
+      <itemPath>Makefile-lab5.mk</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile-lab5.mk</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <compilerSet>GNU|GNU</compilerSet>
+        <platform>2</platform>
+      </toolsSet>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>$(MAKE) -f Makefile</buildCommand>
+          <cleanCommand>$(MAKE) -f Makefile clean</cleanCommand>
+          <executablePath></executablePath>
+          <cTool>
+            <incDir>
+              <pElem>inc</pElem>
+              <pElem>kern</pElem>
+              <pElem>.</pElem>
+            </incDir>
+          </cTool>
+        </makeTool>
+      </makefileType>
+      <item path="boot/main.c" ex="true" tool="0">
+      </item>
+      <item path="fs/fs.c" ex="true" tool="0">
+      </item>
+      <item path="fs/fs.h" ex="true" tool="3">
+      </item>
+      <item path="fs/fsformat.c" ex="true" tool="0">
+      </item>
+      <item path="fs/serv.c" ex="true" tool="0">
+      </item>
+      <item path="fs/test.c" ex="true" tool="0">
+      </item>
+      <item path="inc/args.h" ex="true" tool="3">
+      </item>
+      <item path="inc/assert.h" ex="true" tool="3">
+      </item>
+      <item path="inc/error.h" ex="true" tool="3">
+      </item>
+      <item path="inc/fd.h" ex="true" tool="3">
+      </item>
+      <item path="inc/fs.h" ex="true" tool="3">
+      </item>
+      <item path="inc/isareg.h" ex="true" tool="3">
+      </item>
+      <item path="inc/kbdreg.h" ex="true" tool="3">
+      </item>
+      <item path="inc/lib.h" ex="true" tool="3">
+      </item>
+      <item path="inc/malloc.h" ex="true" tool="3">
+      </item>
+      <item path="inc/queue.h" ex="true" tool="3">
+      </item>
+      <item path="inc/stab.h" ex="true" tool="3">
+      </item>
+      <item path="inc/stdio.h" ex="true" tool="3">
+      </item>
+      <item path="inc/string.h" ex="true" tool="3">
+      </item>
+      <item path="inc/syscall.h" ex="true" tool="3">
+      </item>
+      <item path="inc/timerreg.h" ex="true" tool="3">
+      </item>
+      <item path="kern/console.h" ex="true" tool="3">
+      </item>
+      <item path="kern/ide.c" ex="true" tool="0">
+      </item>
+      <item path="kern/ide.h" ex="true" tool="3">
+      </item>
+      <item path="kern/idereg.h" ex="true" tool="3">
+      </item>
+      <item path="kern/kclock.h" ex="true" tool="3">
+      </item>
+      <item path="kern/kdebug.c" ex="true" tool="0">
+      </item>
+      <item path="kern/monitor.h" ex="true" tool="3">
+      </item>
+      <item path="kern/pci.c" ex="true" tool="0">
+      </item>
+      <item path="kern/pci.h" ex="true" tool="3">
+      </item>
+      <item path="kern/pcireg.h" ex="true" tool="3">
+      </item>
+      <item path="kern/sched.h" ex="true" tool="3">
+      </item>
+      <item path="kern/syscall.c" ex="true" tool="0">
+      </item>
+      <item path="kern/syscall.h" ex="true" tool="3">
+      </item>
+      <item path="lib/console.c" ex="true" tool="0">
+      </item>
+      <item path="lib/exit.c" ex="true" tool="0">
+      </item>
+      <item path="lib/fd.c" ex="true" tool="0">
+      </item>
+      <item path="lib/file.c" ex="true" tool="0">
+      </item>
+      <item path="lib/fork.c" ex="true" tool="0">
+      </item>
+      <item path="lib/fprintf.c" ex="true" tool="0">
+      </item>
+      <item path="lib/fsipc.c" ex="true" tool="0">
+      </item>
+      <item path="lib/ipc.c" ex="true" tool="0">
+      </item>
+      <item path="lib/libmain.c" ex="true" tool="0">
+      </item>
+      <item path="lib/pageref.c" ex="true" tool="0">
+      </item>
+      <item path="lib/panic.c" ex="true" tool="0">
+      </item>
+      <item path="lib/pgfault.c" ex="true" tool="0">
+      </item>
+      <item path="lib/printf.c" ex="true" tool="0">
+      </item>
+      <item path="lib/printfmt.c" ex="true" tool="0">
+      </item>
+      <item path="lib/readline.c" ex="true" tool="0">
+      </item>
+      <item path="lib/spawn.c" ex="true" tool="0">
+      </item>
+      <item path="lib/string.c" ex="true" tool="0">
+      </item>
+      <item path="lib/syscall.c" ex="true" tool="0">
+      </item>
+      <item path="user/cat.c" ex="true" tool="0">
+      </item>
+      <item path="user/dumbfork.c" ex="true" tool="0">
+      </item>
+      <item path="user/echo.c" ex="true" tool="0">
+      </item>
+      <item path="user/fairness.c" ex="true" tool="0">
+      </item>
+      <item path="user/faultalloc.c" ex="true" tool="0">
+      </item>
+      <item path="user/faultallocbad.c" ex="true" tool="0">
+      </item>
+      <item path="user/faultbadhandler.c" ex="true" tool="0">
+      </item>
+      <item path="user/faultdie.c" ex="true" tool="0">
+      </item>
+      <item path="user/faultevilhandler.c" ex="true" tool="0">
+      </item>
+      <item path="user/faultnostack.c" ex="true" tool="0">
+      </item>
+      <item path="user/faultread.c" ex="true" tool="0">
+      </item>
+      <item path="user/faultwrite.c" ex="true" tool="0">
+      </item>
+      <item path="user/forktree.c" ex="true" tool="0">
+      </item>
+      <item path="user/hello.c" ex="true" tool="0">
+      </item>
+      <item path="user/icode.c" ex="true" tool="0">
+      </item>
+      <item path="user/idle.c" ex="true" tool="0">
+      </item>
+      <item path="user/init.c" ex="true" tool="0">
+      </item>
+      <item path="user/initsh.c" ex="true" tool="0">
+      </item>
+      <item path="user/ls.c" ex="true" tool="0">
+      </item>
+      <item path="user/lsfd.c" ex="true" tool="0">
+      </item>
+      <item path="user/num.c" ex="true" tool="0">
+      </item>
+      <item path="user/pingpong.c" ex="true" tool="0">
+      </item>
+      <item path="user/pingpongs.c" ex="true" tool="0">
+      </item>
+      <item path="user/primes.c" ex="true" tool="0">
+      </item>
+      <item path="user/primespipe.c" ex="true" tool="0">
+      </item>
+      <item path="user/spawnhello.c" ex="true" tool="0">
+      </item>
+      <item path="user/spawninit.c" ex="true" tool="0">
+      </item>
+      <item path="user/spin.c" ex="true" tool="0">
+      </item>
+      <item path="user/testfsipc.c" ex="true" tool="0">
+      </item>
+      <item path="user/testpmap.c" ex="true" tool="0">
+      </item>
+      <item path="user/writemotd.c" ex="true" tool="0">
+      </item>
+      <item path="user/yield.c" ex="true" tool="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

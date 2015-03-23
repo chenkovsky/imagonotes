@@ -1,0 +1,34 @@
+[Global]
+CurrentProject=Lab3.vpj
+[ProjectDates]
+Lab3.vpj=20091027083437634
+[ActiveConfig]
+Lab3.vpj=Debug
+[TreeExpansion2]
++ Lab3.vpj
+  + Source Files
+  + Header Files
+  + Resource Files
+  + Bitmaps
+  + Other Files
+scroll:0
+[State]
+SCREEN: 1280 800 168 39 1019 760 0 0 M 0 0 0 0 1056 520 0
+CWD: \lab4
+FILEHIST: 9
+kern\syscall.c
+kern\trapentry.S
+kern\env.h
+kern\env.c
+lib\syscall.c
+F:\Counter.v
+F:\新建文件夹\06302010084陆玮珏06302010101林玲\couuntHDL\countHDL.v
+F:\新建文件夹\06302010084陆玮珏06302010101林玲\D-Counter\D-Counter.v
+F:\新建文件夹\06302010079杨追燕&06302010090程珏慧\lab34\lab34.v
+DEBUG: 0 0 0 0 3 0 gdb
+printf
+strcpy
+std::*
+DEBUG2: 0
+PROJECT_CACHE: 0
+TBCLASS: 0 0

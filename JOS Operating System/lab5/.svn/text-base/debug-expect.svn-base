@@ -1,0 +1,21 @@
+#! /usr/bin/expect -f
+
+# spawn the ssh command
+spawn gdb ./obj/kern/kernel
+
+expect "(gdb)"
+send "target remote localhost:1234\r"
+
+expect "(gdb)"
+send "break readline\r"
+
+expect "(gdb)"
+send "c\r"
+
+expect "(gdb)"
+send "quit\r"
+
+expect "The program is running.  Exit anyway? (y or n)"
+send "y\r"
+
+

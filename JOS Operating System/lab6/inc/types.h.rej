@@ -1,0 +1,9 @@
+--- inc/types.h	(版本 1345)
++++ inc/types.h	(版本 1541)
+@@ -69,4 +69,6 @@
+ // Return the offset of 'member' relative to the beginning of a struct type
+ #define offsetof(type, member)  ((size_t) (&((type*)0)->member))
+ 
++#define PRIu64 "ld"
++
+ #endif /* !JOS_INC_TYPES_H */

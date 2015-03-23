@@ -1,0 +1,11 @@
+--- user/idle.c	(版本 1345)
++++ user/idle.c	(版本 1541)
+@@ -24,7 +24,7 @@
+ 		// if we invoke the kernel monitor after each iteration,
+ 		// because the first invocation of the idle environment
+ 		// usually means everything else has run to completion.
+-		breakpoint();
++		//breakpoint();
+ 	}
+ }
+ 

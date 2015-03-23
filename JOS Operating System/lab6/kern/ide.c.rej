@@ -1,0 +1,260 @@
+--- kern/ide.c	(版本 1345)
++++ kern/ide.c	(版本 1541)
+@@ -52,7 +52,7 @@
+ {
+     uint64_t ts_start = read_tsc();
+     for (;;) {
+-        idec->ide_status = inb(idec->cmd_addr + IDE_REG_STATUS);
++        idec->ide_status = inb(idec->cmd_addr + IDE_REG_STATUS);//read status
+         if ((idec->ide_status & (IDE_STAT_BSY | flagmask)) == flagset)
+             break;
+ 
+@@ -136,22 +136,39 @@
+ ide_intr(void *arg)
+ {
+     struct ide_channel *idec = arg;
++
+     if(ide_verbose)
+         cprintf("ide_intr\n");
+-
++        //irq_setmask_8259A(irq_mask_8259A);
++        ide_dma_irqack(idec);
++        //inb(idec->cmd_addr + IDE_REG_STATUS);
++        outb(IO_PIC2,0x20);
+     if (idec->irq_wait == 0) {
+         if(ide_verbose) {
+             cprintf("idec->irq_wait=%d: just return\n",
+                     idec->irq_wait);
+         }
+-        inb(idec->cmd_addr + IDE_REG_STATUS);
+         assert((inb(idec->ctl_addr) & (IDE_CTL_NIEN)) == 0);
++        //outb(idec->bm_addr+IDE_BM_STAT_REG,IDE_BM_STAT_INTR);
++        //outb(idec->bm_addr+IDE_BM_CMD_REG,0);
++        envs[1].env_tf.tf_padding2 = 0;
++        
+         return;
+     }
+-
++    /*challenge
++    else{
++        if(ide_verbose) {
++            cprintf("idec->irq_wait=%d: just return\n",
++                    idec->irq_wait);
++        }
++        assert((inb(idec->ctl_addr) & (IDE_CTL_NIEN)) == 0);
++        idec->dma_wait --;
++    }*/
++//? no use???????????
+     panic("dma_wait and irq_wait not implemented\n");
+ 
+     // Lab5: Your code here.
++    
+     return;
+ }
+ 
+@@ -160,19 +177,113 @@
+    oversimplified -- the transfer size is always 4KB. */
+ int
+ ide_dma_read(uint32_t secno, void *dst, size_t nsecs)
+-{
+-    panic("ide_dma_read not implemented");
++{//may be there's no problem,but maybe i assume that one page.
+ 
+     // Lab5: Your code here.
++    // 
++    //cprintf("at the head of the ide_dma_read\n");
++    int r;
++    assert(nsecs <= 256);
++    int curslot = 0;
++    /*
++    challenge code:
++    size_t left = nsecs;
++
++    while(left > BLKSECTS) {
++        struct ide_prd *prd = &(idec->bm_prd[curslot]);
++        idec->irq_wait = 0;
++        pte_t* pte_store;
++        struct Page *pg = page_lookup(curenv->env_pgdir,dst,&pte_store);
++        prd->addr = PTE_ADDR(*pte_store);
++        prd->count = (nsecs*SECTSIZE);
++        struct Page *prdpg = page_lookup(curenv->env_pgdir,prd,&pte_store);
++        curslot++;
++        left -= BLKSECTS;
++        dst += PGSIZE;
++    }
++    idec->dma_wait = curslot -1; 
++    */
++    /*4k*/
++    struct ide_prd *prd = &(idec->bm_prd[curslot]);
++    idec->irq_wait = 0;
++    pte_t* pte_store;
++    struct Page *pg = page_lookup(curenv->env_pgdir,dst,&pte_store);
++    prd->addr = PTE_ADDR(*pte_store);
++    prd->count = (nsecs*SECTSIZE)|IDE_PRD_EOT;//EOT
++    struct Page *prdpg = page_lookup(curenv->env_pgdir,prd,&pte_store);
++    /*4k*/
++
++    //cprintf("prd's va:%x,addr va:%x\n",prd,dst);
++    //cprintf("the pg transfer address:%x\n",prd->addr);
++    //cprintf("the prdpg address:%x;size is %x\n",PTE_ADDR(*pte_store)|PGOFF(prd),prd->count);
++    //ide_wait(idec, IDE_STAT_DRDY, IDE_STAT_DRDY);
++    /*set BM*/
++    outb(idec->bm_addr+IDE_BM_CMD_REG,0);//stop the former transfer if any. maybe this is no use.
++    outb(idec->bm_addr+IDE_BM_STAT_REG,IDE_BM_STAT_INTR|IDE_BM_STAT_ERROR);/*clear the interrupt and err*/
++    outl(idec->bm_addr+IDE_BM_PRDT_REG,PTE_ADDR(*pte_store)|PGOFF(prd));/*set the address of descriptor of cache*/
++    //outb(idec->bm_addr+IDE_BM_CMD_REG,8);/*set read*/
++    
++    ide_wait(idec, IDE_STAT_DRDY, IDE_STAT_DRDY);
++    //outb(idec->cmd_addr+IDE_REG_DEVICE,0);//reset the DEV
++    //ide_wait(idec, IDE_STAT_DRDY, IDE_STAT_DRDY);
++    //outb(idec->ctl_addr,0);//open interrupt
++    /*set ATA*/
++    outb(idec->cmd_addr+IDE_REG_FEATURES,0);
++    outb(idec->cmd_addr+IDE_REG_SECTOR_COUNT, nsecs);//set sector count
++    outb(idec->cmd_addr+IDE_REG_LBA_LOW, secno & 0xFF);//LBA's 0~7
++    outb(idec->cmd_addr+IDE_REG_LBA_MID, (secno >> 8) & 0xFF);//LBA's 8~15
++    outb(idec->cmd_addr+IDE_REG_LBA_HI, (secno >> 16) & 0xFF);//LBA's 16~23
++    outb(idec->cmd_addr+IDE_REG_DEVICE, (0xE0 | ((idec->diskno)<<4) | ((secno>>24)&0x0F)));//obs LBA obs DEV LBA's 24~27
++    outb(idec->cmd_addr+IDE_REG_CMD, IDE_CMD_READ_DMA);
++    /*start the transfer*/
++    //cprintf("interrup bit before transfer:%d",(inb(idec->bm_addr+IDE_BM_STAT_REG)&4));
++    outb(idec->ctl_addr, 0);
++    outb(idec->bm_addr+IDE_BM_CMD_REG,IDE_BM_CMD_START);/*set the command in the BM:read and start*/
++    //maybe wrong because of the interrupt and err bit.how to response interrupt
++    //cprintf("at the tail of the ide_dma_read\n");
++    //while(!(inb(idec->bm_addr+IDE_BM_STAT_REG)&4)) {
++        //cprintf("waiting!!!!!!\n");
++    //}
+     return 0;
+ }
+ 
+ int __attribute__((__unused__))
+ ide_dma_write(uint32_t secno, const void *src, size_t nsecs)
+ {
+-    panic("ide_dma_write not implemented");
+ 
+     // Lab5: Your code here.
++    int r;
++    assert(nsecs <= 256);
++    //cprintf("at the head of the ide_dma_write\n");
++    struct ide_prd *prd = &(idec->bm_prd[0]);
++    pte_t* pte_store;
++    struct Page *pg = page_lookup(curenv->env_pgdir,(void*)src,&pte_store);
++    prd->addr = PTE_ADDR(*pte_store);
++    prd->count = (nsecs*SECTSIZE)|IDE_PRD_EOT;//EOT
++    struct Page *prdpg = page_lookup(curenv->env_pgdir,prd,&pte_store);
++    //ide_wait(idec, IDE_STAT_DRDY, IDE_STAT_DRDY);
++    /*set BM*/
++    outl(idec->bm_addr+IDE_BM_CMD_REG,0);//stop the former transfer if any. maybe this is no use.
++    outb(idec->bm_addr+IDE_BM_STAT_REG,6);/*clear the interrupt and err*/
++    //outb(idec->bm_addr+IDE_BM_STAT_REG,7<<5);//set simplex D1DC,D0DC
++    outl(idec->bm_addr+IDE_BM_PRDT_REG,PTE_ADDR(*pte_store)|PGOFF(prd));/*set the address of descriptor of cache*/
++    outb(idec->bm_addr+IDE_BM_CMD_REG,IDE_BM_CMD_WRITE);/*set write*/
++    /*set ATA*/
++    ide_wait(idec, IDE_STAT_DRDY, IDE_STAT_DRDY);
++    outb(idec->cmd_addr+IDE_REG_SECTOR_COUNT, nsecs);//set sector count
++    outb(idec->cmd_addr+IDE_REG_LBA_LOW, secno & 0xFF);//LBA's 0~7
++    outb(idec->cmd_addr+IDE_REG_LBA_MID, (secno >> 8) & 0xFF);//LBA's 8~15
++    outb(idec->cmd_addr+IDE_REG_LBA_HI, (secno >> 16) & 0xFF);//LBA's 16~23
++    outb(idec->cmd_addr+IDE_REG_DEVICE, (0xE0 | ((idec->diskno)<<4) | ((secno>>24)&0x0F)));//obs LBA obs DEV LBA's 24~27
++    outb(idec->cmd_addr+IDE_REG_CMD, IDE_CMD_WRITE_DMA);
++    /*start the transfer*/
++    //cprintf("interrup bit before transfer:%d",(inb(idec->bm_addr+IDE_BM_STAT_REG)&4));
++    outb(idec->ctl_addr, 0);
++    outb(idec->bm_addr+IDE_BM_CMD_REG,IDE_BM_CMD_START);/*set the command in the BM:write and start*/
++    //while(!(inb(idec->bm_addr+IDE_BM_STAT_REG)&4)) {
++        //cprintf("waiting!!!!!!\n");
++    //}
++    //cprintf("we have interrupt\n");
+     return 0;
+ }
+ 
+@@ -191,7 +302,7 @@
+ 
+ static int
+ ide_pio_in(struct ide_channel *idec, void *buf, uint32_t num_sectors)
+-{
++{//read the status
+     char *cbuf = (char *) buf;
+ 
+     for (; num_sectors > 0; num_sectors--, cbuf += SECTSIZE) {
+@@ -238,7 +349,10 @@
+     int i;
+     outb(idec->cmd_addr + IDE_REG_DEVICE, idec->diskno << 4);
+     outb(idec->cmd_addr + IDE_REG_CMD, IDE_CMD_IDENTIFY);
+-
++    /* on the ATA's pdf page 127 
++     * command returns media status bit WP,MC,MCR,NM. 
++     * if the media disabled,return 0; 
++     */
+     cprintf("Probing IDE disk %d..\n", idec->diskno);
+     if (ide_pio_in(idec, &identify_buf, 1) < 0)
+         return -E_INVAL;
+@@ -252,7 +366,24 @@
+ 
+     // Identify the Ultra DMA mode (1-5)    
+     // Lab5: Your code here. 
+-
++    int16_t udma_mode = -1;
++    if((identify_buf.id.udma_mode & 1<<5)) {
++        //cprintf("5\n");
++        udma_mode = 5;
++    }else if((identify_buf.id.udma_mode & 1<<4)){
++        //cprintf("4\n");
++        udma_mode = 4;
++    }else if((identify_buf.id.udma_mode & 1<<3)){
++        //cprintf("3\n");
++        udma_mode = 3;
++    }else if((identify_buf.id.udma_mode & 1<<2)){
++        //cprintf("2\n");
++        udma_mode = 2;
++    }else if((identify_buf.id.udma_mode & 1<<1)){
++        //cprintf("1\n");
++        udma_mode = 1;
++    }
++    cprintf("udma mode:%d\n",udma_mode);
+     if (ide_verbose)
+         cprintf("IDE device (%d sectors, UDMA %d%s): %1.40s\n",
+                 identify_buf.id.lba_sectors, udma_mode,
+@@ -317,14 +448,14 @@
+ 
+     idec = page2kva(pp);
+     memset(idec, 0, sizeof(struct ide_channel));
+-    static_assert(PGSIZE >= sizeof(*idec));
+-    pci_func_enable(pcif);
++    static_assert(PGSIZE >= sizeof(*idec));/* one page is allocated for idec*/
++    pci_func_enable(pcif);//seemly read the configure to the pcif
+     if(ide_verbose)
+         cprintf("  ide_init: pcif->reg_base[0]: 0x%x, pcif->reg_base[1]: 0x%x\n",
+                 pcif->reg_base[0], pcif->reg_base[1]+2);
+ 
+     // Use the first IDE channel on the IDE controller
+-    idec->cmd_addr = pcif->reg_size[0] ? pcif->reg_base[0] : 0x1f0;
++    idec->cmd_addr = pcif->reg_size[0] ? pcif->reg_base[0] : 0x1f0;//if read configure ok,then set the value read,else set it with the default value?
+     idec->ctl_addr = pcif->reg_size[1] ? pcif->reg_base[1] + 2 : 0x3f6;
+     idec->bm_addr = pcif->reg_base[4];
+     idec->irq = IDE_IRQ;
+@@ -338,18 +469,20 @@
+ 	cprintf("	unmasked IDE interrupt\n");
+ 
+     // Set the irq op
+-    disk_irq_op.arg = idec;
++    disk_irq_op.arg = idec;//ide channel is the argument of the irq handler
+ 
+     // Try to initialize the second IDE drive (secondary) first
++    cprintf("in the ide_init before idec_init disk1\n");
+     idec->diskno = 1;
+     if (idec_init(idec) >= 0)
+         return 1;
+-
++//why?
++    cprintf("in the ide_init after idec_init disk1\n");
+     // Try the primary drive instead..
+     idec->diskno = 0;
+     if (idec_init(idec) >= 0)
+         return 1;
+-
++    cprintf("in the ide_init after idec_init disk1\n");
+     // Doesn't seem to work
+     page_free(pp);
+     return 0;

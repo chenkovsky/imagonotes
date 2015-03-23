@@ -1,0 +1,44 @@
+***************
+*** 18,42 ****
+   * so that -E_NO_MEM and E_NO_MEM are equivalent.
+   */
+  
+- static const char * const error_string[MAXERROR + 1] =
+- {
+- 	NULL,
+- 	"unspecified error",
+- 	"bad environment",
+- 	"invalid parameter",
+- 	"out of memory",
+- 	"out of environments",
+- 	"segmentation fault",
+- };
+  
+  /*
+   * Print a number (base <= 16) in reverse order,
+   * using specified putch function and associated pointer putdat.
+   */
+- static void
+- printnum(void (*putch)(int, void*), void *putdat,
+- 	 unsigned long long num, unsigned base, int width, int padc)
+- {
+  	// first recursively print all preceding (more significant) digits
+  	if (num >= base) {
+  		printnum(putch, putdat, num / base, base, width - 1, padc);
+--- 18,33 ----
+   * so that -E_NO_MEM and E_NO_MEM are equivalent.
+   */
+  
++ static const char * const error_string[MAXERROR + 1] = { NULL,
++ 		"unspecified error", "bad environment", "invalid parameter",
++ 		"out of memory", "out of environments", "segmentation fault", };
+  
+  /*
+   * Print a number (base <= 16) in reverse order,
+   * using specified putch function and associated pointer putdat.
+   */
++ static void printnum(void(*putch)(int, void*), void *putdat,
++ 		unsigned long long num, unsigned base, int width, int padc) {
+  	// first recursively print all preceding (more significant) digits
+  	if (num >= base) {
+  		printnum(putch, putdat, num / base, base, width - 1, padc);

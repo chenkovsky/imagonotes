@@ -1,0 +1,47 @@
+#transCallExp
+b semant.c:265
+
+#transFunctionDec
+b semant.c:124
+
+#b tree.c:68
+#condition 1 right->u.CONST == -48 || left->u.CONST == -48
+#FunBoolList
+b semant.c:52
+#transSimpleVar
+b semant.c:68
+#transFieldVar
+b semant.c:75
+#transSubscriptVar
+b semant.c:103
+
+#transVarDec
+b semant.c:166 
+#transtypeDec
+b semant.c:190
+#transOpExp
+b semant.c:207
+#transStringExp
+b semant.c:257
+
+#transRecordExp
+b semant.c:296
+#transSeqExp
+b semant.c:331
+#transAssignExp
+b semant.c:362
+#transIfExp
+b semant.c:382
+#transWhileExp
+b semant.c:416
+#transForExp
+b semant.c:439
+#transBreakExp
+b semant.c:472
+#transLetExp
+b semant.c:475
+#transArrayExp
+b semant.c:511
+#transFieldVar'
+b semant.c:81
+run test/test12.tig

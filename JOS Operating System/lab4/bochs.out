@@ -1,0 +1,968 @@
+6828 decimal is 15254 octal!
+Physical memory: 32768K available, base = 640K, extended = 31744K
+check_page_alloc() succeeded!
+page_check() succeeded!
+check_boot_pgdir() succeeded!
+enabled interrupts: 1 2 4
+	     Setup timer interrupts via 8259A
+enabled interrupts: 0 1 2 4
+	     unmasked timer interrupt
+[00000000] new env 00001000
+[00000000] new env 00001001
+[00001001] new env 00001002
+env 4097 to env 4098 send ok,value:2
+from env 4097 to env 4098,recieve ok,value:2
+2 [00001002] new env 00001003
+env 4097 to env 4098 send ok,value:3
+from env 4097 to env 4098,recieve ok,value:3
+my p is 2
+env 4098 to env 4099 send ok,value:3
+from env 4098 to env 4099,recieve ok,value:3
+3 [00001003] new env 00001004
+env 4097 to env 4098 send ok,value:4
+from env 4097 to env 4098,recieve ok,value:4
+my p is 2
+env 4097 to env 4098 send ok,value:5
+from env 4097 to env 4098,recieve ok,value:5
+my p is 2
+env 4098 to env 4099 send ok,value:5
+from env 4098 to env 4099,recieve ok,value:5
+env 4097 to env 4098 send ok,value:6
+from env 4097 to env 4098,recieve ok,value:6
+my p is 3
+from env 4099 to env 4100,recieve ok,value:5
+my p is 2
+env 4099 to env 4100 send ok,value:5
+5 [00001004] new env 00001005
+env 4097 to env 4098 send ok,value:7
+from env 4097 to env 4098,recieve ok,value:7
+my p is 2
+env 4098 to env 4099 send ok,value:7
+from env 4098 to env 4099,recieve ok,value:7
+my p is 3
+env 4097 to env 4098 send ok,value:8
+from env 4097 to env 4098,recieve ok,value:8
+env 4099 to env 4100 send ok,value:7
+from env 4099 to env 4100,recieve ok,value:7
+my p is 2
+my p is 5
+env 4100 to env 4101 send ok,value:7
+env 4097 to env 4098 send ok,value:9
+from env 4097 to env 4098,recieve ok,value:9
+from env 4100 to env 4101,recieve ok,value:7
+my p is 2
+env 4098 to env 4099 send ok,value:9
+from env 4098 to env 4099,recieve ok,value:9
+7 [00001005] new env 00001006
+my p is 3
+env 4097 to env 4098 send ok,value:10
+from env 4097 to env 4098,recieve ok,value:10
+my p is 2
+env 4097 to env 4098 send ok,value:11
+from env 4097 to env 4098,recieve ok,value:11
+my p is 2
+from env 4098 to env 4099,recieve ok,value:11
+env 4098 to env 4099 send ok,value:11
+my p is 3
+env 4099 to env 4100 send ok,value:11
+from env 4099 to env 4100,recieve ok,value:11
+my p is 5
+from env 4100 to env 4101,recieve ok,value:11
+env 4100 to env 4101 send ok,value:11
+my p is 7
+env 4101 to env 4102 send ok,value:11
+from env 4101 to env 4102,recieve ok,value:11
+11 [00001006] new env 00001007
+env 4097 to env 4098 send ok,value:12
+from env 4097 to env 4098,recieve ok,value:12
+my p is 2
+env 4097 to env 4098 send ok,value:13
+from env 4097 to env 4098,recieve ok,value:13
+my p is 2
+env 4098 to env 4099 send ok,value:13
+from env 4098 to env 4099,recieve ok,value:13
+env 4097 to env 4098 send ok,value:14
+from env 4097 to env 4098,recieve ok,value:14
+my p is 3
+from env 4099 to env 4100,recieve ok,value:13
+my p is 2
+env 4099 to env 4100 send ok,value:13
+env 4097 to env 4098 send ok,value:15
+my p is 5
+from env 4100 to env 4101,recieve ok,value:13
+from env 4097 to env 4098,recieve ok,value:15
+my p is 7
+env 4101 to env 4102 send ok,value:13
+from env 4101 to env 4102,recieve ok,value:13
+my p is 2
+env 4100 to env 4101 send ok,value:13
+my p is 11
+env 4098 to env 4099 send ok,value:15
+env 4102 to env 4103 send ok,value:13
+from env 4102 to env 4103,recieve ok,value:13
+env 4097 to env 4098 send ok,value:16
+from env 4097 to env 4098,recieve ok,value:16
+from env 4098 to env 4099,recieve ok,value:15
+13 [00001007] new env 00001008
+my p is 2
+my p is 3
+env 4097 to env 4098 send ok,value:17
+from env 4097 to env 4098,recieve ok,value:17
+my p is 2
+env 4098 to env 4099 send ok,value:17
+from env 4098 to env 4099,recieve ok,value:17
+my p is 3
+env 4099 to env 4100 send ok,value:17
+env 4097 to env 4098 send ok,value:18
+from env 4097 to env 4098,recieve ok,value:18
+my p is 2
+from env 4099 to env 4100,recieve ok,value:17
+my p is 5
+env 4097 to env 4098 send ok,value:19
+env 4100 to env 4101 send ok,value:17
+from env 4097 to env 4098,recieve ok,value:19
+my p is 2
+env 4098 to env 4099 send ok,value:19
+from env 4100 to env 4101,recieve ok,value:17
+env 4097 to env 4098 send ok,value:20
+from env 4097 to env 4098,recieve ok,value:20
+from env 4098 to env 4099,recieve ok,value:19
+my p is 2
+my p is 3
+env 4099 to env 4100 send ok,value:19
+from env 4099 to env 4100,recieve ok,value:19
+my p is 7
+env 4097 to env 4098 send ok,value:21
+from env 4097 to env 4098,recieve ok,value:21
+my p is 5
+env 4101 to env 4102 send ok,value:17
+from env 4101 to env 4102,recieve ok,value:17
+my p is 2
+from env 4098 to env 4099,recieve ok,value:21
+my p is 11
+env 4102 to env 4103 send ok,value:17
+from env 4102 to env 4103,recieve ok,value:17
+env 4098 to env 4099 send ok,value:21
+my p is 3
+env 4100 to env 4101 send ok,value:19
+from env 4100 to env 4101,recieve ok,value:19
+my p is 13
+my p is 7
+env 4101 to env 4102 send ok,value:19
+from env 4101 to env 4102,recieve ok,value:19
+from env 4103 to env 4104,recieve ok,value:17
+env 4097 to env 4098 send ok,value:22
+from env 4097 to env 4098,recieve ok,value:22
+my p is 11
+env 4103 to env 4104 send ok,value:17
+17 [00001008] new env 00001009
+my p is 2
+env 4097 to env 4098 send ok,value:23
+from env 4097 to env 4098,recieve ok,value:23
+env 4102 to env 4103 send ok,value:19
+from env 4102 to env 4103,recieve ok,value:19
+my p is 2
+env 4098 to env 4099 send ok,value:23
+my p is 13
+from env 4098 to env 4099,recieve ok,value:23
+my p is 3
+from env 4103 to env 4104,recieve ok,value:19
+env 4097 to env 4098 send ok,value:24
+env 4099 to env 4100 send ok,value:23
+env 4103 to env 4104 send ok,value:19
+from env 4097 to env 4098,recieve ok,value:24
+from env 4099 to env 4100,recieve ok,value:23
+my p is 17
+from env 4104 to env 4105,recieve ok,value:19
+my p is 2
+my p is 5
+env 4104 to env 4105 send ok,value:19
+19 [00001009] new env 0000100a
+env 4097 to env 4098 send ok,value:25
+from env 4097 to env 4098,recieve ok,value:25
+from env 4100 to env 4101,recieve ok,value:23
+my p is 2
+env 4098 to env 4099 send ok,value:25
+from env 4098 to env 4099,recieve ok,value:25
+env 4100 to env 4101 send ok,value:23
+my p is 7
+env 4101 to env 4102 send ok,value:23
+from env 4101 to env 4102,recieve ok,value:23
+my p is 3
+my p is 11
+env 4102 to env 4103 send ok,value:23
+from env 4102 to env 4103,recieve ok,value:23
+env 4099 to env 4100 send ok,value:25
+from env 4099 to env 4100,recieve ok,value:25
+my p is 13
+env 4097 to env 4098 send ok,value:26
+from env 4097 to env 4098,recieve ok,value:26
+my p is 5
+env 4103 to env 4104 send ok,value:23
+my p is 2
+from env 4103 to env 4104,recieve ok,value:23
+env 4097 to env 4098 send ok,value:27
+my p is 17
+from env 4097 to env 4098,recieve ok,value:27
+env 4104 to env 4105 send ok,value:23
+from env 4104 to env 4105,recieve ok,value:23
+my p is 2
+env 4098 to env 4099 send ok,value:27
+my p is 19
+from env 4105 to env 4106,recieve ok,value:23
+from env 4098 to env 4099,recieve ok,value:27
+my p is 3
+23 [0000100a] new env 0000100b
+env 4097 to env 4098 send ok,value:28
+env 4105 to env 4106 send ok,value:23
+from env 4097 to env 4098,recieve ok,value:28
+my p is 2
+env 4097 to env 4098 send ok,value:29
+from env 4097 to env 4098,recieve ok,value:29
+my p is 2
+env 4098 to env 4099 send ok,value:29
+from env 4098 to env 4099,recieve ok,value:29
+env 4097 to env 4098 send ok,value:30
+from env 4097 to env 4098,recieve ok,value:30
+my p is 3
+my p is 2
+env 4099 to env 4100 send ok,value:29
+from env 4099 to env 4100,recieve ok,value:29
+my p is 5
+env 4100 to env 4101 send ok,value:29
+from env 4100 to env 4101,recieve ok,value:29
+env 4097 to env 4098 send ok,value:31
+my p is 7
+env 4101 to env 4102 send ok,value:29
+from env 4101 to env 4102,recieve ok,value:29
+from env 4097 to env 4098,recieve ok,value:31
+my p is 11
+my p is 2
+from env 4098 to env 4099,recieve ok,value:31
+env 4102 to env 4103 send ok,value:29
+env 4098 to env 4099 send ok,value:31
+my p is 3
+from env 4099 to env 4100,recieve ok,value:31
+from env 4102 to env 4103,recieve ok,value:29
+env 4099 to env 4100 send ok,value:31
+my p is 5
+my p is 13
+env 4103 to env 4104 send ok,value:29
+from env 4103 to env 4104,recieve ok,value:29
+env 4100 to env 4101 send ok,value:31
+my p is 17
+from env 4104 to env 4105,recieve ok,value:29
+env 4097 to env 4098 send ok,value:32
+from env 4097 to env 4098,recieve ok,value:32
+from env 4100 to env 4101,recieve ok,value:31
+my p is 19
+env 4105 to env 4106 send ok,value:29
+from env 4105 to env 4106,recieve ok,value:29
+my p is 2
+my p is 7
+env 4101 to env 4102 send ok,value:31
+from env 4101 to env 4102,recieve ok,value:31
+env 4104 to env 4105 send ok,value:29
+my p is 23
+my p is 11
+env 4106 to env 4107 send ok,value:29
+from env 4106 to env 4107,recieve ok,value:29
+env 4097 to env 4098 send ok,value:33
+from env 4097 to env 4098,recieve ok,value:33
+from env 4102 to env 4103,recieve ok,value:31
+29 [0000100b] new env 0000100c
+env 4102 to env 4103 send ok,value:31
+my p is 13
+my p is 2
+env 4098 to env 4099 send ok,value:33
+env 4103 to env 4104 send ok,value:31
+from env 4103 to env 4104,recieve ok,value:31
+from env 4098 to env 4099,recieve ok,value:33
+my p is 17
+env 4097 to env 4098 send ok,value:34
+my p is 3
+env 4104 to env 4105 send ok,value:31
+from env 4104 to env 4105,recieve ok,value:31
+from env 4097 to env 4098,recieve ok,value:34
+my p is 19
+env 4105 to env 4106 send ok,value:31
+my p is 2
+from env 4105 to env 4106,recieve ok,value:31
+my p is 23
+env 4106 to env 4107 send ok,value:31
+from env 4106 to env 4107,recieve ok,value:31
+env 4097 to env 4098 send ok,value:35
+my p is 29
+from env 4107 to env 4108,recieve ok,value:31
+from env 4097 to env 4098,recieve ok,value:35
+env 4107 to env 4108 send ok,value:31
+my p is 2
+env 4098 to env 4099 send ok,value:35
+from env 4098 to env 4099,recieve ok,value:35
+31 [0000100c] new env 0000100d
+env 4097 to env 4098 send ok,value:36
+from env 4097 to env 4098,recieve ok,value:36
+my p is 3
+my p is 2
+env 4099 to env 4100 send ok,value:35
+from env 4099 to env 4100,recieve ok,value:35
+env 4097 to env 4098 send ok,value:37
+my p is 5
+from env 4097 to env 4098,recieve ok,value:37
+my p is 2
+env 4098 to env 4099 send ok,value:37
+from env 4098 to env 4099,recieve ok,value:37
+my p is 3
+env 4099 to env 4100 send ok,value:37
+from env 4099 to env 4100,recieve ok,value:37
+env 4097 to env 4098 send ok,value:38
+from env 4097 to env 4098,recieve ok,value:38
+my p is 5
+my p is 2
+env 4100 to env 4101 send ok,value:37
+from env 4100 to env 4101,recieve ok,value:37
+my p is 7
+env 4101 to env 4102 send ok,value:37
+from env 4101 to env 4102,recieve ok,value:37
+my p is 11
+from env 4102 to env 4103,recieve ok,value:37
+env 4097 to env 4098 send ok,value:39
+env 4102 to env 4103 send ok,value:37
+my p is 13
+from env 4097 to env 4098,recieve ok,value:39
+env 4103 to env 4104 send ok,value:37
+from env 4103 to env 4104,recieve ok,value:37
+my p is 2
+my p is 17
+env 4104 to env 4105 send ok,value:37
+from env 4104 to env 4105,recieve ok,value:37
+env 4098 to env 4099 send ok,value:39
+my p is 19
+from env 4105 to env 4106,recieve ok,value:37
+from env 4098 to env 4099,recieve ok,value:39
+env 4105 to env 4106 send ok,value:37
+my p is 23
+env 4106 to env 4107 send ok,value:37
+from env 4106 to env 4107,recieve ok,value:37
+my p is 29
+env 4107 to env 4108 send ok,value:37
+from env 4107 to env 4108,recieve ok,value:37
+my p is 31
+env 4108 to env 4109 send ok,value:37
+from env 4108 to env 4109,recieve ok,value:37
+37 [0000100d] new env 0000100e
+env 4097 to env 4098 send ok,value:40
+from env 4097 to env 4098,recieve ok,value:40
+my p is 3
+my p is 2
+env 4097 to env 4098 send ok,value:41
+from env 4097 to env 4098,recieve ok,value:41
+my p is 2
+env 4098 to env 4099 send ok,value:41
+from env 4098 to env 4099,recieve ok,value:41
+my p is 3
+env 4099 to env 4100 send ok,value:41
+from env 4099 to env 4100,recieve ok,value:41
+my p is 5
+from env 4100 to env 4101,recieve ok,value:41
+env 4100 to env 4101 send ok,value:41
+my p is 7
+env 4101 to env 4102 send ok,value:41
+from env 4101 to env 4102,recieve ok,value:41
+env 4097 to env 4098 send ok,value:42
+my p is 11
+from env 4102 to env 4103,recieve ok,value:41
+from env 4097 to env 4098,recieve ok,value:42
+env 4102 to env 4103 send ok,value:41
+my p is 13
+my p is 2
+from env 4103 to env 4104,recieve ok,value:41
+env 4097 to env 4098 send ok,value:43
+from env 4097 to env 4098,recieve ok,value:43
+my p is 17
+my p is 2
+from env 4098 to env 4099,recieve ok,value:43
+env 4103 to env 4104 send ok,value:41
+env 4104 to env 4105 send ok,value:41
+from env 4104 to env 4105,recieve ok,value:41
+env 4098 to env 4099 send ok,value:43
+my p is 3
+from env 4099 to env 4100,recieve ok,value:43
+my p is 19
+env 4099 to env 4100 send ok,value:43
+my p is 5
+env 4097 to env 4098 send ok,value:44
+from env 4097 to env 4098,recieve ok,value:44
+env 4100 to env 4101 send ok,value:43
+env 4105 to env 4106 send ok,value:41
+from env 4105 to env 4106,recieve ok,value:41
+my p is 2
+from env 4100 to env 4101,recieve ok,value:43
+my p is 23
+my p is 7
+env 4101 to env 4102 send ok,value:43
+env 4106 to env 4107 send ok,value:41
+from env 4106 to env 4107,recieve ok,value:41
+env 4097 to env 4098 send ok,value:45
+from env 4097 to env 4098,recieve ok,value:45
+from env 4101 to env 4102,recieve ok,value:43
+my p is 29
+my p is 2
+env 4098 to env 4099 send ok,value:45
+my p is 11
+from env 4102 to env 4103,recieve ok,value:43
+env 4107 to env 4108 send ok,value:41
+from env 4107 to env 4108,recieve ok,value:41
+from env 4098 to env 4099,recieve ok,value:45
+env 4102 to env 4103 send ok,value:43
+my p is 13
+my p is 31
+env 4108 to env 4109 send ok,value:41
+env 4097 to env 4098 send ok,value:46
+from env 4097 to env 4098,recieve ok,value:46
+my p is 3
+env 4103 to env 4104 send ok,value:43
+from env 4103 to env 4104,recieve ok,value:43
+from env 4108 to env 4109,recieve ok,value:41
+my p is 2
+my p is 17
+env 4104 to env 4105 send ok,value:43
+from env 4104 to env 4105,recieve ok,value:43
+my p is 37
+from env 4109 to env 4110,recieve ok,value:41
+my p is 19
+from env 4105 to env 4106,recieve ok,value:43
+env 4109 to env 4110 send ok,value:41
+41 [0000100e] new env 0000100f
+env 4105 to env 4106 send ok,value:43
+my p is 23
+env 4097 to env 4098 send ok,value:47
+env 4106 to env 4107 send ok,value:43
+from env 4106 to env 4107,recieve ok,value:43
+from env 4097 to env 4098,recieve ok,value:47
+my p is 29
+my p is 2
+env 4098 to env 4099 send ok,value:47
+from env 4098 to env 4099,recieve ok,value:47
+env 4107 to env 4108 send ok,value:43
+from env 4107 to env 4108,recieve ok,value:43
+my p is 3
+env 4099 to env 4100 send ok,value:47
+from env 4099 to env 4100,recieve ok,value:47
+my p is 31
+from env 4108 to env 4109,recieve ok,value:43
+env 4097 to env 4098 send ok,value:48
+my p is 5
+env 4108 to env 4109 send ok,value:43
+my p is 37
+from env 4097 to env 4098,recieve ok,value:48
+env 4100 to env 4101 send ok,value:47
+env 4109 to env 4110 send ok,value:43
+from env 4109 to env 4110,recieve ok,value:43
+my p is 2
+from env 4100 to env 4101,recieve ok,value:47
+env 4097 to env 4098 send ok,value:49
+my p is 7
+env 4101 to env 4102 send ok,value:47
+from env 4101 to env 4102,recieve ok,value:47
+my p is 41
+from env 4097 to env 4098,recieve ok,value:49
+my p is 11
+env 4110 to env 4111 send ok,value:43
+from env 4110 to env 4111,recieve ok,value:43
+my p is 2
+env 4102 to env 4103 send ok,value:47
+from env 4102 to env 4103,recieve ok,value:47
+43 [0000100f] new env 00001010
+env 4098 to env 4099 send ok,value:49
+my p is 13
+env 4103 to env 4104 send ok,value:47
+from env 4103 to env 4104,recieve ok,value:47
+from env 4098 to env 4099,recieve ok,value:49
+my p is 17
+env 4097 to env 4098 send ok,value:50
+from env 4097 to env 4098,recieve ok,value:50
+my p is 3
+env 4099 to env 4100 send ok,value:49
+from env 4099 to env 4100,recieve ok,value:49
+env 4104 to env 4105 send ok,value:47
+from env 4104 to env 4105,recieve ok,value:47
+my p is 2
+my p is 5
+from env 4100 to env 4101,recieve ok,value:49
+my p is 19
+env 4105 to env 4106 send ok,value:47
+from env 4105 to env 4106,recieve ok,value:47
+env 4097 to env 4098 send ok,value:51
+env 4100 to env 4101 send ok,value:49
+my p is 7
+my p is 23
+env 4106 to env 4107 send ok,value:47
+from env 4106 to env 4107,recieve ok,value:47
+from env 4097 to env 4098,recieve ok,value:51
+my p is 2
+env 4098 to env 4099 send ok,value:51
+from env 4098 to env 4099,recieve ok,value:51
+my p is 29
+my p is 3
+env 4107 to env 4108 send ok,value:47
+from env 4107 to env 4108,recieve ok,value:47
+my p is 31
+from env 4108 to env 4109,recieve ok,value:47
+env 4097 to env 4098 send ok,value:52
+from env 4097 to env 4098,recieve ok,value:52
+env 4108 to env 4109 send ok,value:47
+my p is 37
+env 4109 to env 4110 send ok,value:47
+from env 4109 to env 4110,recieve ok,value:47
+my p is 2
+my p is 41
+from env 4110 to env 4111,recieve ok,value:47
+env 4097 to env 4098 send ok,value:53
+from env 4097 to env 4098,recieve ok,value:53
+env 4110 to env 4111 send ok,value:47
+my p is 43
+from env 4111 to env 4112,recieve ok,value:47
+my p is 2
+from env 4098 to env 4099,recieve ok,value:53
+env 4111 to env 4112 send ok,value:47
+47 [00001010] new env 00001011
+env 4098 to env 4099 send ok,value:53
+my p is 3
+env 4099 to env 4100 send ok,value:53
+env 4097 to env 4098 send ok,value:54
+from env 4097 to env 4098,recieve ok,value:54
+my p is 2
+env 4097 to env 4098 send ok,value:55
+from env 4097 to env 4098,recieve ok,value:55
+from env 4099 to env 4100,recieve ok,value:53
+my p is 2
+env 4098 to env 4099 send ok,value:55
+from env 4098 to env 4099,recieve ok,value:55
+my p is 5
+my p is 3
+from env 4100 to env 4101,recieve ok,value:53
+env 4100 to env 4101 send ok,value:53
+env 4097 to env 4098 send ok,value:56
+env 4099 to env 4100 send ok,value:55
+from env 4099 to env 4100,recieve ok,value:55
+my p is 7
+from env 4097 to env 4098,recieve ok,value:56
+my p is 5
+from env 4101 to env 4102,recieve ok,value:53
+env 4101 to env 4102 send ok,value:53
+my p is 2
+my p is 11
+env 4102 to env 4103 send ok,value:53
+from env 4102 to env 4103,recieve ok,value:53
+my p is 13
+from env 4103 to env 4104,recieve ok,value:53
+env 4097 to env 4098 send ok,value:57
+from env 4097 to env 4098,recieve ok,value:57
+env 4103 to env 4104 send ok,value:53
+my p is 17
+my p is 2
+from env 4098 to env 4099,recieve ok,value:57
+env 4104 to env 4105 send ok,value:53
+from env 4104 to env 4105,recieve ok,value:53
+env 4098 to env 4099 send ok,value:57
+my p is 3
+env 4097 to env 4098 send ok,value:58
+from env 4097 to env 4098,recieve ok,value:58
+my p is 2
+my p is 19
+env 4105 to env 4106 send ok,value:53
+from env 4105 to env 4106,recieve ok,value:53
+my p is 23
+env 4106 to env 4107 send ok,value:53
+env 4097 to env 4098 send ok,value:59
+from env 4097 to env 4098,recieve ok,value:59
+from env 4106 to env 4107,recieve ok,value:53
+my p is 2
+my p is 29
+env 4107 to env 4108 send ok,value:53
+env 4098 to env 4099 send ok,value:59
+from env 4098 to env 4099,recieve ok,value:59
+from env 4107 to env 4108,recieve ok,value:53
+env 4097 to env 4098 send ok,value:60
+from env 4097 to env 4098,recieve ok,value:60
+my p is 31
+from env 4108 to env 4109,recieve ok,value:53
+my p is 2
+my p is 3
+from env 4099 to env 4100,recieve ok,value:59
+my p is 37
+env 4109 to env 4110 send ok,value:53
+from env 4109 to env 4110,recieve ok,value:53
+env 4099 to env 4100 send ok,value:59
+my p is 5
+env 4108 to env 4109 send ok,value:53
+from env 4097 to env 4098,recieve ok,value:61
+env 4100 to env 4101 send ok,value:59
+from env 4100 to env 4101,recieve ok,value:59
+my p is 41
+env 4097 to env 4098 send ok,value:61
+my p is 2
+my p is 7
+env 4110 to env 4111 send ok,value:53
+env 4098 to env 4099 send ok,value:61
+env 4101 to env 4102 send ok,value:59
+from env 4101 to env 4102,recieve ok,value:59
+from env 4110 to env 4111,recieve ok,value:53
+env 4097 to env 4098 send ok,value:62
+from env 4098 to env 4099,recieve ok,value:61
+my p is 11
+from env 4102 to env 4103,recieve ok,value:59
+from env 4097 to env 4098,recieve ok,value:62
+my p is 3
+my p is 13
+env 4103 to env 4104 send ok,value:59
+from env 4103 to env 4104,recieve ok,value:59
+my p is 43
+env 4111 to env 4112 send ok,value:53
+from env 4111 to env 4112,recieve ok,value:53
+my p is 2
+env 4099 to env 4100 send ok,value:61
+from env 4099 to env 4100,recieve ok,value:61
+env 4102 to env 4103 send ok,value:59
+my p is 17
+my p is 47
+env 4112 to env 4113 send ok,value:53
+from env 4112 to env 4113,recieve ok,value:53
+my p is 5
+from env 4100 to env 4101,recieve ok,value:61
+env 4104 to env 4105 send ok,value:59
+from env 4104 to env 4105,recieve ok,value:59
+53 env 4097 to env 4098 send ok,value:63
+from env 4097 to env 4098,recieve ok,value:63
+env 4100 to env 4101 send ok,value:61
+my p is 7
+my p is 19
+env 4105 to env 4106 send ok,value:59
+from env 4105 to env 4106,recieve ok,value:59
+[00001011] new env 00001012
+my p is 2
+env 4098 to env 4099 send ok,value:63
+from env 4098 to env 4099,recieve ok,value:63
+from env 4101 to env 4102,recieve ok,value:61
+my p is 23
+my p is 3
+env 4101 to env 4102 send ok,value:61
+my p is 11
+env 4106 to env 4107 send ok,value:59
+from env 4106 to env 4107,recieve ok,value:59
+env 4102 to env 4103 send ok,value:61
+from env 4102 to env 4103,recieve ok,value:61
+my p is 29
+env 4097 to env 4098 send ok,value:64
+my p is 13
+env 4107 to env 4108 send ok,value:59
+from env 4107 to env 4108,recieve ok,value:59
+from env 4097 to env 4098,recieve ok,value:64
+env 4103 to env 4104 send ok,value:61
+from env 4103 to env 4104,recieve ok,value:61
+my p is 31
+my p is 2
+my p is 17
+env 4108 to env 4109 send ok,value:59
+from env 4108 to env 4109,recieve ok,value:59
+env 4104 to env 4105 send ok,value:61
+from env 4104 to env 4105,recieve ok,value:61
+my p is 37
+env 4109 to env 4110 send ok,value:59
+env 4097 to env 4098 send ok,value:65
+my p is 19
+from env 4105 to env 4106,recieve ok,value:61
+from env 4109 to env 4110,recieve ok,value:59
+from env 4097 to env 4098,recieve ok,value:65
+env 4105 to env 4106 send ok,value:61
+my p is 23
+my p is 41
+env 4110 to env 4111 send ok,value:59
+from env 4110 to env 4111,recieve ok,value:59
+my p is 2
+env 4098 to env 4099 send ok,value:65
+env 4106 to env 4107 send ok,value:61
+from env 4106 to env 4107,recieve ok,value:61
+my p is 43
+env 4097 to env 4098 send ok,value:66
+from env 4097 to env 4098,recieve ok,value:66
+from env 4098 to env 4099,recieve ok,value:65
+my p is 29
+env 4107 to env 4108 send ok,value:61
+from env 4107 to env 4108,recieve ok,value:61
+from env 4111 to env 4112,recieve ok,value:59
+my p is 2
+my p is 3
+from env 4099 to env 4100,recieve ok,value:65
+my p is 5
+my p is 31
+from env 4108 to env 4109,recieve ok,value:61
+env 4111 to env 4112 send ok,value:59
+env 4099 to env 4100 send ok,value:65
+my p is 37
+my p is 47
+env 4112 to env 4113 send ok,value:59
+from env 4112 to env 4113,recieve ok,value:59
+env 4097 to env 4098 send ok,value:67
+from env 4097 to env 4098,recieve ok,value:67
+env 4108 to env 4109 send ok,value:61
+env 4109 to env 4110 send ok,value:61
+from env 4109 to env 4110,recieve ok,value:61
+my p is 53
+my p is 2
+my p is 41
+env 4110 to env 4111 send ok,value:61
+from env 4110 to env 4111,recieve ok,value:61
+env 4113 to env 4114 send ok,value:59
+env 4098 to env 4099 send ok,value:67
+from env 4098 to env 4099,recieve ok,value:67
+my p is 43
+from env 4113 to env 4114,recieve ok,value:59
+my p is 3
+env 4099 to env 4100 send ok,value:67
+from env 4099 to env 4100,recieve ok,value:67
+env 4111 to env 4112 send ok,value:61
+from env 4111 to env 4112,recieve ok,value:61
+59 [00001012] new env 00001013
+env 4097 to env 4098 send ok,value:68
+from env 4097 to env 4098,recieve ok,value:68
+my p is 47
+my p is 2
+my p is 5
+env 4100 to env 4101 send ok,value:67
+env 4112 to env 4113 send ok,value:61
+from env 4112 to env 4113,recieve ok,value:61
+env 4097 to env 4098 send ok,value:69
+from env 4097 to env 4098,recieve ok,value:69
+from env 4100 to env 4101,recieve ok,value:67
+my p is 53
+my p is 2
+env 4098 to env 4099 send ok,value:69
+from env 4098 to env 4099,recieve ok,value:69
+my p is 7
+env 4101 to env 4102 send ok,value:67
+from env 4101 to env 4102,recieve ok,value:67
+my p is 3
+my p is 11
+env 4097 to env 4098 send ok,value:70
+from env 4097 to env 4098,recieve ok,value:70
+env 4102 to env 4103 send ok,value:67
+from env 4102 to env 4103,recieve ok,value:67
+env 4113 to env 4114 send ok,value:61
+from env 4113 to env 4114,recieve ok,value:61
+my p is 2
+my p is 13
+my p is 59
+env 4097 to env 4098 send ok,value:71
+from env 4097 to env 4098,recieve ok,value:71
+env 4103 to env 4104 send ok,value:67
+from env 4103 to env 4104,recieve ok,value:67
+env 4114 to env 4115 send ok,value:61
+from env 4114 to env 4115,recieve ok,value:61
+my p is 2
+env 4098 to env 4099 send ok,value:71
+from env 4098 to env 4099,recieve ok,value:71
+my p is 17
+61 [00001013] new env 00001014
+my p is 3
+from env 4099 to env 4100,recieve ok,value:71
+my p is 5
+from env 4104 to env 4105,recieve ok,value:67
+env 4097 to env 4098 send ok,value:72
+from env 4097 to env 4098,recieve ok,value:72
+env 4099 to env 4100 send ok,value:71
+env 4100 to env 4101 send ok,value:71
+from env 4100 to env 4101,recieve ok,value:71
+env 4104 to env 4105 send ok,value:67
+my p is 19
+my p is 2
+my p is 7
+env 4105 to env 4106 send ok,value:67
+from env 4105 to env 4106,recieve ok,value:67
+env 4097 to env 4098 send ok,value:73
+env 4101 to env 4102 send ok,value:71
+my p is 23
+from env 4097 to env 4098,recieve ok,value:73
+env 4106 to env 4107 send ok,value:67
+from env 4106 to env 4107,recieve ok,value:67
+my p is 2
+env 4098 to env 4099 send ok,value:73
+from env 4098 to env 4099,recieve ok,value:73
+from env 4101 to env 4102,recieve ok,value:71
+my p is 29
+env 4107 to env 4108 send ok,value:67
+from env 4107 to env 4108,recieve ok,value:67
+my p is 3
+my p is 11
+env 4102 to env 4103 send ok,value:71
+from env 4102 to env 4103,recieve ok,value:71
+my p is 31
+env 4108 to env 4109 send ok,value:67
+from env 4108 to env 4109,recieve ok,value:67
+from env 4097 to env 4098,recieve ok,value:74
+env 4099 to env 4100 send ok,value:73
+from env 4099 to env 4100,recieve ok,value:73
+my p is 37
+env 4109 to env 4110 send ok,value:67
+from env 4109 to env 4110,recieve ok,value:67
+my p is 2
+my p is 5
+from env 4100 to env 4101,recieve ok,value:73
+my p is 13
+my p is 41
+env 4097 to env 4098 send ok,value:74
+from env 4097 to env 4098,recieve ok,value:75
+env 4100 to env 4101 send ok,value:73
+env 4103 to env 4104 send ok,value:71
+from env 4103 to env 4104,recieve ok,value:71
+env 4110 to env 4111 send ok,value:67
+from env 4110 to env 4111,recieve ok,value:67
+env 4097 to env 4098 send ok,value:75
+my p is 2
+my p is 7
+my p is 17
+my p is 43
+from env 4111 to env 4112,recieve ok,value:67
+my p is 47
+env 4098 to env 4099 send ok,value:75
+from env 4098 to env 4099,recieve ok,value:75
+env 4101 to env 4102 send ok,value:73
+env 4104 to env 4105 send ok,value:71
+from env 4104 to env 4105,recieve ok,value:71
+env 4111 to env 4112 send ok,value:67
+from env 4112 to env 4113,recieve ok,value:67
+my p is 3
+from env 4101 to env 4102,recieve ok,value:73
+my p is 19
+env 4112 to env 4113 send ok,value:67
+my p is 53
+env 4097 to env 4098 send ok,value:76
+my p is 11
+env 4105 to env 4106 send ok,value:71
+from env 4105 to env 4106,recieve ok,value:71
+env 4113 to env 4114 send ok,value:67
+from env 4097 to env 4098,recieve ok,value:76
+env 4102 to env 4103 send ok,value:73
+from env 4102 to env 4103,recieve ok,value:73
+my p is 23
+from env 4113 to env 4114,recieve ok,value:67
+my p is 2
+my p is 13
+env 4106 to env 4107 send ok,value:71
+from env 4106 to env 4107,recieve ok,value:71
+my p is 59
+env 4114 to env 4115 send ok,value:67
+env 4097 to env 4098 send ok,value:77
+from env 4097 to env 4098,recieve ok,value:77
+env 4103 to env 4104 send ok,value:73
+from env 4103 to env 4104,recieve ok,value:73
+my p is 29
+from env 4107 to env 4108,recieve ok,value:71
+from env 4114 to env 4115,recieve ok,value:67
+my p is 2
+env 4098 to env 4099 send ok,value:77
+Spurious interrupt on irq 7
+TRAP frame at 0xf01ea100
+  edi  0x00000000
+  esi  0x00800ac4
+  ebp  0xeebfddf8
+  oesp 0xefbfffdc
+  ebx  0x00000000
+  edx  0x00800ac4
+  ecx  0xeebfddf8
+  eax  0x00000000
+  es   0x----0023
+  ds   0x----0023
+  trap 0x00000027 Hardware Interrupt
+  err  0x00000000
+  eip  0x00800ac4
+  cs   0x----001b
+  flag 0x00000206
+  esp  0xeebfddf8
+  ss   0x----0023
+from env 4098 to env 4099,recieve ok,value:77
+my p is 17
+env 4107 to env 4108 send ok,value:71
+my p is 31
+my p is 61
+my p is 3
+env 4099 to env 4100 send ok,value:77
+from env 4099 to env 4100,recieve ok,value:77
+env 4104 to env 4105 send ok,value:73
+from env 4104 to env 4105,recieve ok,value:73
+env 4108 to env 4109 send ok,value:71
+env 4115 to env 4116 send ok,value:67
+env 4097 to env 4098 send ok,value:78
+from env 4097 to env 4098,recieve ok,value:78
+my p is 5
+env 4100 to env 4101 send ok,value:77
+from env 4100 to env 4101,recieve ok,value:77
+my p is 19
+from env 4105 to env 4106,recieve ok,value:73
+from env 4108 to env 4109,recieve ok,value:71
+from env 4115 to env 4116,recieve ok,value:67
+my p is 2
+my p is 7
+env 4105 to env 4106 send ok,value:73
+my p is 23
+my p is 37
+67 [00001014] new env 00001015
+env 4097 to env 4098 send ok,value:79
+from env 4097 to env 4098,recieve ok,value:79
+env 4106 to env 4107 send ok,value:73
+from env 4106 to env 4107,recieve ok,value:73
+env 4109 to env 4110 send ok,value:71
+from env 4109 to env 4110,recieve ok,value:71
+my p is 2
+my p is 29
+env 4107 to env 4108 send ok,value:73
+from env 4107 to env 4108,recieve ok,value:73
+my p is 41
+env 4098 to env 4099 send ok,value:79
+my p is 31
+env 4110 to env 4111 send ok,value:71
+env 4097 to env 4098 send ok,value:80
+from env 4097 to env 4098,recieve ok,value:80
+from env 4098 to env 4099,recieve ok,value:79
+env 4108 to env 4109 send ok,value:73
+from env 4108 to env 4109,recieve ok,value:73
+from env 4110 to env 4111,recieve ok,value:71
+my p is 2
+my p is 3
+from env 4099 to env 4100,recieve ok,value:79
+my p is 37
+env 4109 to env 4110 send ok,value:73
+from env 4109 to env 4110,recieve ok,value:73
+my p is 43
+env 4111 to env 4112 send ok,value:71
+from env 4111 to env 4112,recieve ok,value:71
+my p is 47
+from env 4112 to env 4113,recieve ok,value:71
+env 4099 to env 4100 send ok,value:79
+my p is 5
+from env 4100 to env 4101,recieve ok,value:79
+my p is 41
+env 4112 to env 4113 send ok,value:71
+my p is 53
+env 4097 to env 4098 send ok,value:81
+from env 4097 to env 4098,recieve ok,value:81
+my p is 7
+from env 4101 to env 4102,recieve ok,value:79
+env 4110 to env 4111 send ok,value:73
+env 4113 to env 4114 send ok,value:71
+from env 4113 to env 4114,recieve ok,value:71
+my p is 2
+env 4098 to env 4099 send ok,value:81
+from env 4098 to env 4099,recieve ok,value:81
+env 4101 to env 4102 send ok,value:79
+my p is 11
+from env 4110 to env 4111,recieve ok,value:73
+my p is 59
+env 4114 to env 4115 send ok,value:71
+my p is 3
+env 4102 to env 4103 send ok,value:79
+my p is 43
+from env 4111 to env 4112,recieve ok,value:73
+from env 4114 to env 4115,recieve ok,value:71
+env 4097 to env 4098 send ok,

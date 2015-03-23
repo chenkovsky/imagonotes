@@ -1,0 +1,16 @@
+***************
+*** 4,9 ****
+  void
+  exit(void)
+  {
+  	sys_env_destroy(0);
+  }
+  
+--- 4,10 ----
+  void
+  exit(void)
+  {
++     //cprintf("in the exit,sys_env_destroy will be called\n");
+  	sys_env_destroy(0);
+  }
+  

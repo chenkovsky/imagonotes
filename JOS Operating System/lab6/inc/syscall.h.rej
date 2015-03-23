@@ -1,0 +1,11 @@
+--- inc/syscall.h	(版本 1345)
++++ inc/syscall.h	(版本 1541)
+@@ -18,6 +18,8 @@
+ 	SYS_yield,
+ 	SYS_ipc_try_send,
+ 	SYS_ipc_recv,
++    SYS_ide_read,
++    SYS_ide_write,
+ 	NSYSCALLS
+ };
+ 

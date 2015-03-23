@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="62">
+  <logicalFolder name="root" displayName="root" projectFiles="true">
+    <df name="lab3" root=".">
+      <df name="boot">
+        <in>main.c</in>
+      </df>
+      <df name="conf">
+      </df>
+      <df name="inc">
+      </df>
+      <df name="kern">
+        <in>console.c</in>
+        <in>env.c</in>
+        <in>init.c</in>
+        <in>kclock.c</in>
+        <in>kdebug.c</in>
+        <in>monitor.c</in>
+        <in>pmap.c</in>
+        <in>printf.c</in>
+        <in>syscall.c</in>
+        <in>trap.c</in>
+      </df>
+      <df name="lib">
+        <in>console.c</in>
+        <in>exit.c</in>
+        <in>libmain.c</in>
+        <in>panic.c</in>
+        <in>printf.c</in>
+        <in>printfmt.c</in>
+        <in>readline.c</in>
+        <in>string.c</in>
+        <in>syscall.c</in>
+      </df>
+      <df name="obj">
+        <df name="boot">
+        </df>
+        <df name="kern">
+        </df>
+        <df name="lib">
+        </df>
+        <df name="user">
+        </df>
+      </df>
+      <df name="user">
+        <in>badsegment.c</in>
+        <in>breakpoint.c</in>
+        <in>buggyhello.c</in>
+        <in>divzero.c</in>
+        <in>evilhello.c</in>
+        <in>faultread.c</in>
+        <in>faultreadkernel.c</in>
+        <in>faultwrite.c</in>
+        <in>faultwritekernel.c</in>
+        <in>hello.c</in>
+        <in>softint.c</in>
+        <in>testbss.c</in>
+        <in>testdump.c</in>
+        <in>testpmap.c</in>
+      </df>
+    </df>
+    <logicalFolder name="ExternalFiles" displayName="重要文件" projectFiles="false">
+      <itemPath>GNUmakefile</itemPath>
+      <itemPath>Makefile-lab3.mk</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile-lab3.mk</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <compilerSet>Cygwin|Cygwin</compilerSet>
+        <platform>3</platform>
+      </toolsSet>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>$(MAKE) -f Makefile</buildCommand>
+          <cleanCommand>$(MAKE) -f Makefile clean</cleanCommand>
+          <executablePath></executablePath>
+          <cTool>
+            <incDir>
+              <pElem>.</pElem>
+            </incDir>
+          </cTool>
+        </makeTool>
+      </makefileType>
+      <folder path="lab3/boot">
+        <cTool>
+          <incDir>
+            <pElem>boot</pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="lab3/kern">
+        <cTool>
+          <incDir>
+            <pElem>kern</pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="lab3/lib">
+        <cTool>
+          <incDir>
+            <pElem>lib</pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="lab3/user">
+        <cTool>
+          <incDir>
+            <pElem>user</pElem>
+          </incDir>
+        </cTool>
+      </folder>
+    </conf>
+  </confs>
+</configurationDescriptor>

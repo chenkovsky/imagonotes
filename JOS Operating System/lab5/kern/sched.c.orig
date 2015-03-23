@@ -1,0 +1,46 @@
+#include <inc/assert.h>
+#include <inc/x86.h>
+
+#include <kern/env.h>
+#include <kern/pmap.h>
+#include <kern/monitor.h>
+
+
+// Choose a user environment to run and run it.
+void
+sched_yield(void)
+{
+    // Lab5 test specific: don't delete the following 4 lines
+    // Break into the JOS kernel monitor when only 'fs' and 'idle'
+    // are alive in the system.
+    // A real, "production" OS of course would NOT do this -
+    // it would just endlessly loop waiting for hardware interrupts
+    // to cause other environments to become runnable.
+    // However, in JOS it is easier for testing and grading
+    // if we invoke the kernel monitor after each iteration,
+    // because the first invocation of the idle environment
+    // usually means everything else has run to completion.
+    if(get_allocated_envs_n() == 2) {
+        assert(envs[0].env_status == ENV_RUNNABLE);
+        breakpoint();
+    }
+	// Implement simple round-robin scheduling.
+	// Search through 'envs' for a runnable environment,
+	// in circular fashion starting after the previously running env,
+	// and switch to the first such environment found.
+	// It's OK to choose the previously running env if no other env
+	// is runnable.
+	// But never choose envs[0], the idle environment,
+	// unless NOTHING else is runnable.
+
+	// LAB 4: Your code here.
+
+	// Run the special idle environment when nothing else is runnable.
+	if (envs[0].env_status == ENV_RUNNABLE)
+		env_run(&envs[0]);
+	else {
+		cprintf("Destroyed all environments - nothing more to do!\n");
+		while (1)
+			monitor(NULL);
+	}
+}

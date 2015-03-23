@@ -1,0 +1,59 @@
+6828 decimal is 15254 octal!
+Physical memory: 66556K available, base = 640K, extended = 65532K
+check_page_alloc() succeeded!
+page_check() succeeded!
+check_boot_pgdir() succeeded!
+enabled interrupts: 1 2 4
+	     Setup timer interrupts via 8259A
+enabled interrupts: 0 1 2 4
+	     unmasked timer interrupt
+PCI: 00:00.0: 8086:1237: class 6.0 irq 0
+PCI: 00:01.0: 8086:7000: class 6.1 irq 0
+PCI: 00:01.1: 8086:7010: class 1.1 irq 0
+  io region 4: 16 bytes at 0xc000
+  ide_init: cmd_addr: 0x1f0, ctl_addr: 0x3f6, bm_addr: 0xc000, irq: 14
+	     Setup IDE interrupt via 8259A
+enabled interrupts: 0 1 2 4 14
+	     unmasked IDE interrupt
+in the ide_init before idec_init disk1
+Probing IDE disk 1..
+udma mode:5
+pci_attach_match: matched
+PCI: 00:01.3: 8086:7113: class 6.80 irq 9
+PCI: 00:02.0: 1013:00b8: class 3.0 irq 0
+PCI: 00:03.0: 10ec:8029: class 2.0 irq 11
+PCI: 00:04.0: 1af4:1002: class 5.0 irq 9
+>>> pci_init is ok <<<
+icode startup
+icode: open /motd
+FS is running
+FS can do I/O
+superblock is good
+write_block is good
+read_bitmap is good
+alloc_block is good
+file_open is good
+file_get_block is good
+file_flush is good
+file_truncate is good
+file rewrite is good
+icode: read /motd
+This is /motd, the message of the day.
+
+Welcome to the JOS kernel, now with a file system!
+
+icode: close /motd
+icode: spawn /init
+sys set trapframe:envid:4099,tf:eebfdb14
+icode: exiting
+init: running
+init: data seems okay
+init: bss seems okay
+destroy 2
+[00001002] free env 00001002
+init: args: 'init' 'initarg1' 'initarg2'
+init: exiting
+destroy 3
+[00001003] free env 00001003
+Welcome to the JOS kernel monitor!
+Type 'help' for a list of commands.

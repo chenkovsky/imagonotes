@@ -1,0 +1,9 @@
+let
+	function f(a:int, b:int) : int = 
+		if a > b
+		then a
+		else b
+in
+	printi(f(9,4))
+end
+		

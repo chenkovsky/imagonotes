@@ -1,0 +1,55 @@
+***************
+*** 606,627 ****
+  // Hint: The TA solution is implemented using page_lookup,
+  // 	tlb_invalidate, and page_decref.
+  //
+  void
+- page_remove(pde_t *pgdir, void *va)
+- {
+- 	// Fill this function in
+  }
+  
+  //
+  // Invalidate a TLB entry, but only if the page tables being
+  // edited are the ones currently in use by the processor.
+  //
+  void
+- tlb_invalidate(pde_t *pgdir, void *va)
+- {
+- 	// Flush the entry only if we're modifying the current address space.
+- 	// For now, there is only one address space, so always invalidate.
+- 	invlpg(va);
+  }
+  
+  static uintptr_t user_mem_check_addr;
+--- 714,743 ----
+  // Hint: The TA solution is implemented using page_lookup,
+  // 	tlb_invalidate, and page_decref.
+  //
++ 
+  void
++ page_remove(pde_t *pgdir, void *va) {
++     // Fill this function in
++     pte_t *p;
++     struct Page *pp;
++     if ((pp = page_lookup(pgdir, va, &p))) {
++         page_decref(pp);
++         *p = 0; //set the page table entry as NULL
++         tlb_invalidate(pgdir, va);
++     }
++     //ok
+  }
+  
+  //
+  // Invalidate a TLB entry, but only if the page tables being
+  // edited are the ones currently in use by the processor.
+  //
++ 
+  void
++ tlb_invalidate(pde_t *pgdir, void *va) {
++     // Flush the entry only if we're modifying the current address space.
++     // For now, there is only one address space, so always invalidate.
++     invlpg(va);
+  }
+  
+  static uintptr_t user_mem_check_addr;

@@ -1,0 +1,27 @@
+***************
+*** 70,77 ****
+  	return 0;
+  }
+  
+  
+- 
+  // Dispatches to the correct kernel function, passing the arguments.
+  int32_t
+  syscall(uint32_t syscallno, uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5)
+--- 70,85 ----
+  	return 0;
+  }
+  
++ static int sys_dump_env(void){
++     cprintf("env_id = %08x\n",curenv->env_id);
++     cprintf("env_parent_id = %08x\n",curenv->env_parent_id);
++     cprintf("env_runs = %d\n",curenv->env_runs);
++     cprintf("env_pgdir = %08x\n",curenv->env_pgdir);
++     cprintf("env_cr3 = %08x\n",curenv->env_cr3);
++     cprintf("env_syscalls = %d\n",curenv->env_syscalls);
++     return 0;
++ }
+  
+  // Dispatches to the correct kernel function, passing the arguments.
+  int32_t
+  syscall(uint32_t syscallno, uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5)

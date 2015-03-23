@@ -1,0 +1,53 @@
+--- kern/init.c	(版本 1345)
++++ kern/init.c	(版本 1541)
+@@ -12,13 +12,14 @@
+ #include <kern/trap.h>
+ #include <kern/sched.h>
+ #include <kern/picirq.h>
++#include <kern/pci.h>
+ 
+ 
+ void
+ i386_init(void)
+ {
+ 	extern char edata[], end[];
+-
++    extern int32_t sysenterhandler;
+ 	// Before doing anything else, complete the ELF loading process.
+ 	// Clear the uninitialized global data (BSS) section of our program.
+ 	// This ensures that all static/global variables start out zero.
+@@ -41,23 +42,29 @@
+ 	// Lab 4 multitasking initialization functions
+ 	pic_init();
+ 	kclock_init();
+-
++    pci_init();
++    /*set up MSR*/
++    wrmsr(IA32_SYSENTER_CS,GD_KT,0);//set the segment
++    wrmsr(IA32_SYSENTER_EIP,&sysenterhandler,0);//set the handler
++    wrmsr(IA32_SYSENTER_ESP,KSTACKTOP,0);//set the stack
+ 	// Should always have an idle process as first one.
+ 	ENV_CREATE(user_idle);
+ 
+ 	// Start fs.
+-	ENV_CREATE(fs_fs);
++	//ENV_CREATE(fs_fs);//?
++    ENV_CREATE(fs_fs);
+ 
+ 	// Start init
+ #if defined(TEST)
+ 	// Don't touch -- used by grading script!
+ 	ENV_CREATE2(TEST, TESTSIZE);
+ #else
+-	// Touch all you want.
+-	ENV_CREATE(user_primes);
++	// Touch all you want.primes
++	ENV_CREATE(user_testfsipc);
++    //ENV_CREATE(user_yield);
+ #endif // TEST*
+ 
+-
++//breakpoint();
+ 	// Schedule and run the first user environment!
+ 	sched_yield();
+ 

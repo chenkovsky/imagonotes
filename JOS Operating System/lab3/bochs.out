@@ -1,0 +1,29 @@
+6828 decimal is 15254 octal!
+Physical memory: 32768K available, base = 640K, extended = 31744K
+check_page_alloc() succeeded!
+page_check() succeeded!
+check_boot_pgdir() succeeded!
+[00000000] new env 00001000
+env_id = 00001000
+env_parent_id = 00000000
+env_runs = 1
+env_pgdir = f1fbc000
+env_cr3 = 01fbc000
+env_syscalls = 1
+env_id = 00001000
+env_parent_id = 00000000
+env_runs = 1
+env_pgdir = f1fbc000
+env_cr3 = 01fbc000
+env_syscalls = 2
+helloenv_id = 00001000
+env_parent_id = 00000000
+env_runs = 1
+env_pgdir = f1fbc000
+env_cr3 = 01fbc000
+env_syscalls = 4
+[00001000] exiting gracefully
+[00001000] free env 00001000
+Destroyed the only environment - nothing more to do!
+Welcome to the JOS kernel monitor!
+Type 'help' for a list of commands.

@@ -1,0 +1,6 @@
+--23:49:40--  http://localhost:56967/random_file.txt
+正在解析主机 localhost... 127.0.0.1
+Connecting to localhost|127.0.0.1|:56967... 已连接。
+已发出 HTTP 请求，正在等待回应... 404 Not Found
+23:49:41 错误 404：Not Found。
+

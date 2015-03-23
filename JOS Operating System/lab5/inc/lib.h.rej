@@ -1,0 +1,22 @@
+***************
+*** 71,78 ****
+  	
+  	
+  	// LAB 4: Your code here.
+- 	panic("sys_exofork(lib.h/inc) not implemented");
+-     
+  	return ret;
+  }
+  
+--- 71,81 ----
+  	
+  	
+  	// LAB 4: Your code here.
++ 	//panic("sys_exofork(lib.h/inc) not implemented");
++     asm volatile("int %2\n\t"
++                   : "=a" (ret)
++                   : "a" (SYS_exofork), "i" (T_SYSCALL));
++     //cprintf("the env's id is %d\n",ret);
+  	return ret;
+  }
+  

@@ -1,0 +1,58 @@
+ LABEL L1
+ MOVE(
+  MEM(
+   BINOP(PLUS,
+    TEMP t101,
+    CONST -28)),
+  BINOP(PLUS,
+   TEMP t101,
+   CONST -24))
+ MOVE(
+  TEMP t100,
+  CALL(
+   NAME allocRecord,
+    CONST 8))
+ MOVE(
+  MEM(
+   BINOP(PLUS,
+    TEMP t100,
+    CONST 0)),
+  CONST 3)
+ MOVE(
+  MEM(
+   BINOP(PLUS,
+    TEMP t100,
+    CONST 4)),
+  CONST 4)
+ MOVE(
+  MEM(
+   MEM(
+    BINOP(PLUS,
+     TEMP t101,
+     CONST -28))),
+  TEMP t100)
+ EXP(
+  CALL(
+   NAME printi,
+    MEM(
+     BINOP(PLUS,
+      MEM(
+       BINOP(PLUS,
+        CONST -24,
+        TEMP t101)),
+      CONST 0)),
+    CONST 161946256))
+ EXP(
+  CALL(
+   NAME printi,
+    MEM(
+     BINOP(PLUS,
+      MEM(
+       BINOP(PLUS,
+        CONST -24,
+        TEMP t101)),
+      CONST 4)),
+    CONST 161946256))
+ JUMP(
+  NAME L0)
+ LABEL L0

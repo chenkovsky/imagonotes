@@ -1,0 +1,87 @@
+***************
+*** 3,9 ****
+  #include <inc/syscall.h>
+  #include <inc/lib.h>
+  
+- static inline int32_t
+  syscall(int num, int check, uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5)
+  {
+  	int32_t ret;
+--- 3,9 ----
+  #include <inc/syscall.h>
+  #include <inc/lib.h>
+  
++ static int32_t
+  syscall(int num, int check, uint32_t a1, uint32_t a2, uint32_t a3, uint32_t a4, uint32_t a5)
+  {
+  	int32_t ret;
+***************
+*** 15,40 ****
+  	// The last clause tells the assembler that this can
+  	// potentially change the condition codes and arbitrary
+  	// memory locations.
+- 
+-     asm volatile("pusha\n\t"
+-                  "movl $1f, %%esi\n\t"
+-                  "movl %%esp, %%ebp\n\t"
+-                  "nop\n\t"
+                   "sysenter\n\t"
+-                  "1:\n\t"
+-                  "popa\n\t"
+                   : "=a" (ret)
+                   : "a" (num),
+                     "d" (a1),
+                     "c" (a2),
+                     "b" (a3),
+                     "D" (a4)
+-                  : "cc", "memory");
+  
+-                    
+- 	if(check && ret > 0)
+- 		panic("syscall %d returned %d (> 0)", num, ret);
+- 
+  	return ret;
+  }
+  
+--- 15,44 ----
+  	// The last clause tells the assembler that this can
+  	// potentially change the condition codes and arbitrary
+  	// memory locations.
++     //push some registers which will be changed after sysenter.
++     //set the address to which the sysexit goes.
++          __asm__ volatile("pushl %%ecx\n\t"
++                         "pushl %%edx\n\t"
++                  "pushl %%ebp\n\t"
++                  "pushl %%esp\n\t"
++                  "popl %%ebp\n\t"
++                  "leal after_sysenter,%%esi\n\t"
+                   "sysenter\n\t"
++                  "after_sysenter:\n\t"
++                  //"xchg %%bx,%%bx\n\t"
++                  "popl %%ebp\n\t"
++                  "popl %%edx\n\t"
++                  "popl %%ecx"
+                   : "=a" (ret)
+                   : "a" (num),
+                     "d" (a1),
+                     "c" (a2),
+                     "b" (a3),
+                     "D" (a4)
++                  : "%esp","esi");
++ 	/*if(check && ret > 0)
++ 		panic("syscall %d returned %d (> 0)", num, ret);*/
+  
+  	return ret;
+  }
+  
+***************
+*** 67,69 ****
+  {
+      return syscall(SYS_dump_env, 0, 0, 0, 0, 0, 0);
+  }
+--- 71,75 ----
+  {
+      return syscall(SYS_dump_env, 0, 0, 0, 0, 0, 0);
+  }
++ 
++ 

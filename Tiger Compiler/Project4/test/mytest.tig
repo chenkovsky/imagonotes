@@ -1,0 +1,12 @@
+/* correct declarations */
+let 
+var N := 8
+function printboard() =
+(for j := 0 to N-1 
+		do (printi(N)))
+function try(c:int) = 
+	(printboard()
+	)
+in
+	try(0)
+end

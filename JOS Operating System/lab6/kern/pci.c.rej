@@ -1,0 +1,70 @@
+--- kern/pci.c	(版本 1345)
++++ kern/pci.c	(版本 1541)
+@@ -28,6 +28,7 @@
+     // How to match the IDE device? Put your code here.
+     // Hint: what is the class code and subclass code of IDE?
+     // Lab5: Your code here.
++    { PCI_CLASS_MASS_STORAGE,PCI_SUBCLASS_MASS_STORAGE_IDE,&ide_init},
+     { 0, 0, 0 },
+ };
+ 
+@@ -77,11 +78,11 @@
+ }
+ 
+ static int __attribute__((warn_unused_result))
+-pci_attach_match(uint32_t key1, uint32_t key2,
++pci_attach_match(uint32_t key1, uint32_t key2,//key1 and key2 are either class and subclass or vender and productno to match the device
+                  struct pci_driver *list, struct pci_func *pcif)
+ {
+     uint32_t i;
+-    for (i = 0; list[i].attachfn; i++) {
++    for (i = 0; list[i].attachfn; i++) {//search the driver list
+         if (list[i].key1 == key1 && list[i].key2 == key2) {
+             int r = list[i].attachfn(pcif);
+             if (r > 0) {
+@@ -102,7 +103,7 @@
+ 
+ static int
+ pci_attach(struct pci_func *f)
+-{
++{//use class and subclass or vender and productno to match the device
+     return
+         pci_attach_match(PCI_CLASS(f->dev_class), PCI_SUBCLASS(f->dev_class),
+                          &pci_attach_class[0], f)
+@@ -127,15 +128,15 @@
+         }
+ 
+         struct pci_func f = df;
+-        for (f.func = 0; f.func < (PCI_HDRTYPE_MULTIFN(bhlc) ? 8 : 1);
++        for (f.func = 0; f.func < (PCI_HDRTYPE_MULTIFN(bhlc) ? 8 : 1);//if it can use multifn,at most 8 function
+ 			 f.func++) {
+             struct pci_func af = f;
+ 
+             af.dev_id = pci_conf_read(&f, PCI_ID_REG);
+-            if (PCI_VENDOR(af.dev_id) == 0xffff)
++            if (PCI_VENDOR(af.dev_id) == 0xffff)//if the producer is null, then skip
+                 continue;
+ 
+-            uint32_t intr = pci_conf_read(&af, PCI_INTERRUPT_REG);
++            uint32_t intr = pci_conf_read(&af, PCI_INTERRUPT_REG);//seemly that every slot have 4 interrupt line?
+             af.irq_line = PCI_INTERRUPT_LINE(intr);
+ 
+             af.dev_class = pci_conf_read(&af, PCI_CLASS_REG);
+@@ -190,7 +191,7 @@
+ 
+ void
+ pci_func_enable(struct pci_func *f)
+-{
++{//seemly read the configure to the f
+     pci_conf_write(f, PCI_COMMAND_STATUS_REG,
+                    PCI_COMMAND_IO_ENABLE
+                    | PCI_COMMAND_MEM_ENABLE
+@@ -204,7 +205,7 @@
+         uint32_t oldv = pci_conf_read(f, bar);
+ 
+         bar_width = 4;
+-        pci_conf_write(f, bar, 0xffffffff);
++        pci_conf_write(f, bar, 0xffffffff);//what?
+         uint32_t rv = pci_conf_read(f, bar);
+ 
+         if (rv == 0)

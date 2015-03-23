@@ -1,0 +1,9 @@
+let
+	var b : int := 5 
+	function f(a:int) = 
+	if( a > 3 )
+	then print("hey! Bigger than 3!")
+	else b := 4
+in
+	printi(b);print(" ");f(2);printi(b)
+end

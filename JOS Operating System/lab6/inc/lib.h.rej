@@ -1,0 +1,12 @@
+--- inc/lib.h	(版本 1345)
++++ inc/lib.h	(版本 1541)
+@@ -52,7 +52,8 @@
+ int	sys_page_unmap(envid_t env, void *pg);
+ int	sys_ipc_try_send(envid_t to_env, uint32_t value, void *pg, int perm);
+ int	sys_ipc_recv(void *rcv_pg);
+-
++int sys_ide_read(uint32_t secno, const void *dst, size_t nsecs);
++int sys_ide_write(uint32_t secno, const void *src, size_t nsecs);
+ // This must be inlined.  Exercise for reader: why?
+ static __inline envid_t sys_exofork(void) __attribute__((always_inline));
+ static __inline envid_t

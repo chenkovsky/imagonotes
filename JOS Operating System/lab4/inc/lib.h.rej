@@ -1,0 +1,17 @@
+***************
+*** 25,31 ****
+  extern volatile struct Env envs[NENV];
+  extern volatile struct Page pages[];
+  void	exit(void);
+- 
+  // readline.c
+  char*	readline(const char *buf);
+  
+--- 25,31 ----
+  extern volatile struct Env envs[NENV];
+  extern volatile struct Page pages[];
+  void	exit(void);
++ //extern struct Env *curenv;
+  // readline.c
+  char*	readline(const char *buf);
+  

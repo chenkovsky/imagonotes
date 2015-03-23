@@ -1,0 +1,17 @@
+--- kern/picirq.h	(版本 1345)
++++ kern/picirq.h	(版本 1541)
+@@ -21,6 +21,14 @@
+ #include <inc/types.h>
+ #include <inc/x86.h>
+ 
++typedef void (irq_handler) (void *arg);
++typedef struct irq_op
++{
++    uint32_t irq;
++    irq_handler *handler;
++    void *arg;
++} irq_op_t;
++
+ extern uint16_t irq_mask_8259A;
+ void pic_init(void);
+ void irq_setmask_8259A(uint16_t mask);

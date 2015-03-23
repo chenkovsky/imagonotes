@@ -1,0 +1,287 @@
+<!DOCTYPE Project SYSTEM "http://www.slickedit.com/dtd/vse/10.0/vpj.dtd">
+<Project
+	Version="10.0"
+	VendorName="SlickEdit"
+	WorkingDir="."
+	BuildSystem="vsbuild">
+	<Config
+		Name="Debug"
+		Type="gnuc"
+		DebugCallbackName="gdb"
+		Version="1"
+		OutputFile="%bdLab4.a"
+		CompilerConfigName="Latest Version">
+		<Menu>
+			<Target
+				Name="Compile"
+				MenuCaption="&amp;Compile"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				OutputExts="*.o"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='gcc -c %xup  %defd -g -o "%bd%n%oe" %i "%f"'/>
+			</Target>
+			<Target
+				Name="Link"
+				MenuCaption="&amp;Link"
+				ShowOnMenu="Never"
+				Dialog="_gnuc_options_form Link"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='ar -rs %xup "%o" %f'/>
+			</Target>
+			<Target
+				Name="Build"
+				MenuCaption="&amp;Build"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t build'/>
+			</Target>
+			<Target
+				Name="Rebuild"
+				MenuCaption="&amp;Rebuild"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t rebuild'/>
+			</Target>
+			<Target
+				Name="Debug"
+				MenuCaption="&amp;Debug"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveNone"
+				RunFromDir="%rw">
+				<Exec CmdLine=""/>
+			</Target>
+			<Target
+				Name="Execute"
+				MenuCaption="E&amp;xecute"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine=""/>
+			</Target>
+			<Target
+				Name="dash"
+				MenuCaption="-"
+				Deletable="0">
+				<Exec/>
+			</Target>
+			<Target
+				Name="GNU C Options"
+				MenuCaption="GNU C &amp;Options..."
+				ShowOnMenu="HideIfNoCmdLine"
+				Deletable="0"
+				SaveOption="SaveNone">
+				<Exec
+					CmdLine="gnucoptions"
+					Type="Slick-C"/>
+			</Target>
+		</Menu>
+	</Config>
+	<Config
+		Name="Release"
+		Type="gnuc"
+		DebugCallbackName="gdb"
+		Version="1"
+		OutputFile="%bdLab4.a"
+		CompilerConfigName="Latest Version">
+		<Menu>
+			<Target
+				Name="Compile"
+				MenuCaption="&amp;Compile"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				OutputExts="*.o"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='gcc -c %xup %defd -o "%bd%n%oe" %i "%f"'/>
+			</Target>
+			<Target
+				Name="Link"
+				MenuCaption="&amp;Link"
+				ShowOnMenu="Never"
+				Dialog="_gnuc_options_form Link"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='ar -rs %xup "%o" %f'/>
+			</Target>
+			<Target
+				Name="Build"
+				MenuCaption="&amp;Build"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t build'/>
+			</Target>
+			<Target
+				Name="Rebuild"
+				MenuCaption="&amp;Rebuild"
+				Dialog="_gnuc_options_form Compile"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%(VSLICKBIN1)vsbuild" "%w" "%r" -t rebuild'/>
+			</Target>
+			<Target
+				Name="Debug"
+				MenuCaption="&amp;Debug"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveNone"
+				RunFromDir="%rw">
+				<Exec CmdLine=""/>
+			</Target>
+			<Target
+				Name="Execute"
+				MenuCaption="E&amp;xecute"
+				Dialog="_gnuc_options_form Run/Debug"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				Deletable="0"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine=""/>
+			</Target>
+			<Target
+				Name="dash"
+				MenuCaption="-"
+				Deletable="0">
+				<Exec/>
+			</Target>
+			<Target
+				Name="GNU C Options"
+				MenuCaption="GNU C &amp;Options..."
+				ShowOnMenu="HideIfNoCmdLine"
+				Deletable="0"
+				SaveOption="SaveNone">
+				<Exec
+					CmdLine="gnucoptions"
+					Type="Slick-C"/>
+			</Target>
+		</Menu>
+	</Config>
+	<Files>
+		<Folder
+			Name="Source Files"
+			Filters="*.c;*.C;*.cc;*.cpp;*.cp;*.cxx;*.c++;*.prg;*.pas;*.dpr;*.asm;*.s;*.bas;*.java;*.cs;*.sc;*.e;*.cob;*.html;*.rc;*.tcl;*.py;*.pl;*.d">
+			<F N="boot/boot.S"/>
+			<F N="kern/console.c"/>
+			<F N="lib/console.c"/>
+			<F N="user/dumbfork.c"/>
+			<F N="kern/entry.S"/>
+			<F N="lib/entry.S"/>
+			<F N="kern/env.c"/>
+			<F N="lib/exit.c"/>
+			<F N="user/fairness.c"/>
+			<F N="user/faultalloc.c"/>
+			<F N="user/faultallocbad.c"/>
+			<F N="user/faultbadhandler.c"/>
+			<F N="user/faultdie.c"/>
+			<F N="user/faultevilhandler.c"/>
+			<F N="user/faultnostack.c"/>
+			<F N="user/faultread.c"/>
+			<F N="user/faultwrite.c"/>
+			<F N="lib/fork.c"/>
+			<F N="user/forktree.c"/>
+			<F N="user/hello.c"/>
+			<F N="user/idle.c"/>
+			<F N="kern/init.c"/>
+			<F N="lib/ipc.c"/>
+			<F N="kern/kclock.c"/>
+			<F N="kern/kdebug.c"/>
+			<F N="lib/libmain.c"/>
+			<F N="boot/main.c"/>
+			<F N="kern/monitor.c"/>
+			<F N="lib/panic.c"/>
+			<F N="lib/pfentry.S"/>
+			<F N="lib/pgfault.c"/>
+			<F N="kern/picirq.c"/>
+			<F N="user/pingpong.c"/>
+			<F N="user/pingpongs.c"/>
+			<F N="kern/pmap.c"/>
+			<F N="user/primes.c"/>
+			<F N="kern/printf.c"/>
+			<F N="lib/printf.c"/>
+			<F N="lib/printfmt.c"/>
+			<F N="lib/readline.c"/>
+			<F N="kern/sched.c"/>
+			<F N="user/spawnhello.c"/>
+			<F N="user/spawninit.c"/>
+			<F N="user/spin.c"/>
+			<F N="lib/string.c"/>
+			<F N="kern/syscall.c"/>
+			<F N="lib/syscall.c"/>
+			<F N="user/testpmap.c"/>
+			<F N="kern/trap.c"/>
+			<F N="kern/trapentry.S"/>
+			<F N="user/yield.c"/>
+		</Folder>
+		<Folder
+			Name="Header Files"
+			Filters="*.h;*.H;*.hh;*.hpp;*.hxx;*.inc;*.sh;*.cpy;*.if">
+			<F N="inc/assert.h"/>
+			<F N="kern/console.h"/>
+			<F N="inc/elf.h"/>
+			<F N="inc/env.h"/>
+			<F N="kern/env.h"/>
+			<F N="inc/error.h"/>
+			<F N="inc/isareg.h"/>
+			<F N="inc/kbdreg.h"/>
+			<F N="kern/kclock.h"/>
+			<F N="kern/kdebug.h"/>
+			<F N="inc/lib.h"/>
+			<F N="inc/malloc.h"/>
+			<F N="inc/memlayout.h"/>
+			<F N="inc/mmu.h"/>
+			<F N="kern/monitor.h"/>
+			<F N="kern/picirq.h"/>
+			<F N="kern/pmap.h"/>
+			<F N="inc/queue.h"/>
+			<F N="kern/sched.h"/>
+			<F N="inc/stab.h"/>
+			<F N="inc/stdarg.h"/>
+			<F N="inc/stdio.h"/>
+			<F N="inc/string.h"/>
+			<F N="inc/syscall.h"/>
+			<F N="kern/syscall.h"/>
+			<F N="inc/timerreg.h"/>
+			<F N="inc/trap.h"/>
+			<F N="kern/trap.h"/>
+			<F N="inc/types.h"/>
+			<F N="inc/x86.h"/>
+		</Folder>
+		<Folder
+			Name="Resource Files"
+			Filters="*.ico;*.cur;*.dlg"/>
+		<Folder
+			Name="Bitmaps"
+			Filters="*.bmp"/>
+		<Folder
+			Name="Other Files"
+			Filters=""/>
+	</Files>
+</Project>
